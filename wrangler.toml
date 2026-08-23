@@ -6,7 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 CLINIC_NAME = "Makana Family Veterinary Clinic"
 CLINIC_EDGELOCATION = "Global Edge Network"
-EMERGENCY_HOTLINE = "+1 (800) 555-8389"
+EMERGENCY_HOTLINE = "+27 (0) 21 555 8389"
 MAX_UPLOAD_SIZE_BYTES = "10485760"
 
 # Cloudflare D1 Database Binding

@@ -115,13 +115,13 @@
 				</button>
 
 				<a
-					href="tel:+18005558389"
+					href="tel:+27215558389"
 					class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-all font-mono text-sm"
 				>
 					<svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
 					</svg>
-					<span>Call: (800) 555-8389</span>
+					<span>Call: +27 (0) 21 555 8389</span>
 				</a>
 			</div>
 		</div>
@@ -261,7 +261,7 @@
 							</div>
 							<div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50">
 								<div class="text-slate-500 mb-1">Medical Record Downloads</div>
-								<div class="text-2xl font-bold text-slate-900">$0.00</div>
+								<div class="text-2xl font-bold text-slate-900">R0.00</div>
 								<div class="text-[11px] text-emerald-700 mt-1">● R2 zero egress fees</div>
 							</div>
 							<div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50">

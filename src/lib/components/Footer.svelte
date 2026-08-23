@@ -30,19 +30,19 @@
 		'@type': 'VeterinaryCare',
 		name: 'Makana Family Veterinary Clinic',
 		image: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf',
-		telephone: '+1-800-555-8389',
+		telephone: '+27-21-555-8389',
 		address: {
 			'@type': 'PostalAddress',
-			streetAddress: '4200 Precision Parkway, Suite 100',
-			addressLocality: 'San Francisco',
-			addressRegion: 'CA',
-			postalCode: '94107',
-			addressCountry: 'US'
+			streetAddress: '4200 Precision Way',
+			addressLocality: 'Cape Town',
+			addressRegion: 'Western Cape',
+			postalCode: '7441',
+			addressCountry: 'ZA'
 		},
 		geo: {
 			'@type': 'GeoCoordinates',
-			latitude: 37.7749,
-			longitude: -122.4194
+			latitude: -33.8924,
+			longitude: 18.5085
 		},
 		openingHoursSpecification: [
 			{
@@ -58,7 +58,7 @@
 				closes: '14:00'
 			}
 		],
-		priceRange: '$$'
+		priceRange: 'R - RR'
 	};
 </script>
 
@@ -85,17 +85,17 @@
 						Need Same-Day Care For Your Pet?
 					</h3>
 					<p class="text-xs text-slate-300 font-mono mt-0.5">
-						Call for urgent daytime appointments or guidance. For midnight life-threatening emergencies, we provide local 24/7 ER partner routing.
+						Call for urgent daytime appointments or guidance. For midnight emergencies, we provide local 24/7 partner hospital referral.
 					</p>
 				</div>
 			</div>
 
 			<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
 				<a
-					href="tel:+18005558389"
+					href="tel:+27215558389"
 					class="px-6 py-3.5 rounded-xl font-mono font-bold text-base bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2 shadow-lg shadow-emerald-700/30 transition-all active:scale-95"
 				>
-					<span>CALL +1 (800) 555-8389</span>
+					<span>CALL +27 (0) 21 555 8389</span>
 				</a>
 			</div>
 		</div>
@@ -122,7 +122,7 @@
 					<div class="flex items-center justify-between text-slate-400">
 						<span class="flex items-center gap-1.5">
 							<span class="w-2 h-2 rounded-full {health?.status === 'healthy' ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}"></span>
-							<span>Edge Node: <strong class="text-white">{health?.edgeLocation || 'IAD-01 (Primary)'}</strong></span>
+							<span>Edge Node: <strong class="text-white">{health?.edgeLocation || 'JNB-01 (Johannesburg)'}</strong></span>
 						</span>
 						<button
 							onclick={checkEdgeHealth}
@@ -163,8 +163,8 @@
 				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Clinic Hours &amp; Location</h4>
 				<div class="text-xs font-mono text-slate-400 space-y-1.5 leading-relaxed">
 					<p class="text-slate-300 font-semibold">Makana Family Veterinary Clinic</p>
-					<p>4200 Precision Parkway, Suite 100</p>
-					<p>San Francisco, CA 94107</p>
+					<p>4200 Precision Way, Century City</p>
+					<p>Cape Town, 7441, South Africa</p>
 					<div class="pt-2 text-slate-300">
 						<p><strong class="text-emerald-400">Mon–Fri:</strong> 8:00 AM – 6:00 PM</p>
 						<p><strong class="text-emerald-400">Saturday:</strong> 8:30 AM – 2:00 PM</p>

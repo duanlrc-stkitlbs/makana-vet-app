@@ -117,7 +117,7 @@
 							<div class="mt-6 pb-6 border-b {plan.popular ? 'border-slate-800' : 'border-slate-100'}">
 								<div class="flex items-baseline gap-1">
 									<span class="text-4xl font-extrabold font-mono">
-										${billingCycle === 'monthly' ? plan.monthly_price_dollars : plan.annual_price_dollars}
+										R{billingCycle === 'monthly' ? plan.monthly_price_rand : plan.annual_price_rand}
 									</span>
 									<span class="text-xs font-mono {plan.popular ? 'text-slate-400' : 'text-slate-500'}">
 										/{billingCycle === 'monthly' ? 'month' : 'year'}
@@ -185,7 +185,7 @@
 							<div class="flex items-center justify-between sm:justify-end gap-6 shrink-0">
 								<div class="text-right">
 									<div class="text-lg font-extrabold font-mono text-slate-950">
-										${(s.price_cents / 100).toLocaleString('en-US')}
+										R{(s.price_cents / 100).toLocaleString('en-ZA')}
 									</div>
 									<div class="text-[11px] font-mono text-slate-400">{s.duration_minutes} min consult</div>
 								</div>

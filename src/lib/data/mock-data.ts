@@ -1,4 +1,4 @@
-import type { Service, Specialist, Appointment, TriageCapacity } from '$lib/types';
+import type { Service, Specialist, Appointment, TriageCapacity, WellnessPlan } from '$lib/types';
 
 export const DEFAULT_SERVICES: Service[] = [
 	{
@@ -6,7 +6,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'comprehensive-wellness-exam',
 		title: 'Comprehensive Nose-to-Tail Wellness Exam',
 		description: 'Full physical examination, vitals check, coat & skin review, ocular & dental grading, and tailored nutritional guidance.',
-		price_cents: 6500,
+		price_cents: 55000, // R550.00 ZAR
 		category: 'preventive',
 		duration_minutes: 30,
 		badge: 'Routine Care',
@@ -23,7 +23,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'vaccine-microchip-package',
 		title: 'Core Vaccines & Lifetime Microchip Implantation',
 		description: 'Age-appropriate core vaccines (Rabies, DHPP / FVRCP) paired with universal microchip registration.',
-		price_cents: 5500,
+		price_cents: 48000, // R480.00 ZAR
 		category: 'preventive',
 		duration_minutes: 20,
 		badge: 'Preventive',
@@ -40,7 +40,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'senior-pet-golden-years',
 		title: 'Senior Pet Golden Years Consultation',
 		description: 'Targeted physical and cognitive evaluation tailored for senior companions, including mobility assessment.',
-		price_cents: 8500,
+		price_cents: 75000, // R750.00 ZAR
 		category: 'preventive',
 		duration_minutes: 40,
 		badge: 'Senior Care',
@@ -57,7 +57,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'ultrasonic-dental-cleaning',
 		title: 'Professional Ultrasonic Dental Cleaning & Polish',
 		description: 'Subgingival ultrasonic scaling, tooth polishing, oral exam, and dental health charting under safe monitored anesthesia.',
-		price_cents: 29000,
+		price_cents: 220000, // R2,200.00 ZAR
 		category: 'dental',
 		duration_minutes: 60,
 		badge: 'Dental Health',
@@ -74,7 +74,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'routine-spay-neuter',
 		title: 'Routine Spay & Neuter Procedure',
 		description: 'Safe elective sterilization surgery in our sterile surgical suite with pre-anesthetic blood screening and multimodal pain relief.',
-		price_cents: 25000,
+		price_cents: 245000, // R2,450.00 ZAR
 		category: 'surgery',
 		duration_minutes: 60,
 		badge: 'Standard Surgery',
@@ -91,7 +91,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'minor-soft-tissue-surgery',
 		title: 'Minor Soft Tissue Surgery & Lump Removal',
 		description: 'Excision of skin masses, cysts, minor laceration repair, and preparation for diagnostic histopathology.',
-		price_cents: 34000,
+		price_cents: 320000, // R3,200.00 ZAR
 		category: 'surgery',
 		duration_minutes: 45,
 		badge: 'Outpatient Surgery',
@@ -108,7 +108,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'digital-radiography-xray',
 		title: 'In-House High-Definition Digital X-Rays',
 		description: 'Rapid, low-stress digital radiography for chest, abdomen, orthopedic, or foreign body evaluation.',
-		price_cents: 16000,
+		price_cents: 145000, // R1,450.00 ZAR
 		category: 'diagnostics',
 		duration_minutes: 25,
 		badge: 'Same-Day Imaging',
@@ -125,7 +125,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'in-clinic-blood-chemistry',
 		title: 'Same-Day In-Clinic Blood & Chemistry Panel',
 		description: 'Rapid on-site complete blood count (CBC) and comprehensive organ chemistry profiles with 15-minute turnaround.',
-		price_cents: 12000,
+		price_cents: 115000, // R1,150.00 ZAR
 		category: 'diagnostics',
 		duration_minutes: 20,
 		badge: '15-Min Results',
@@ -142,7 +142,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'dermatology-ear-workup',
 		title: 'Dermatology, Ear & Allergy Workup',
 		description: 'Microscopic skin scrape, ear cytology, and targeted allergy identification for itchy or uncomfortable pets.',
-		price_cents: 8500,
+		price_cents: 72000, // R720.00 ZAR
 		category: 'diagnostics',
 		duration_minutes: 30,
 		badge: 'Skin & Allergy',
@@ -159,7 +159,7 @@ export const DEFAULT_SERVICES: Service[] = [
 		slug: 'same-day-urgent-visit',
 		title: 'Same-Day Sick Pet & Urgent Care Visit',
 		description: 'Priority daytime appointment for sudden lethargy, vomiting, limping, minor wounds, or sudden eye irritation.',
-		price_cents: 9500,
+		price_cents: 79000, // R790.00 ZAR
 		category: 'urgent_care',
 		duration_minutes: 30,
 		badge: 'Urgent Day Slot',
@@ -179,7 +179,7 @@ export const DEFAULT_SPECIALISTS: Specialist[] = [
 		name: 'Dr. Maya Lin',
 		title: 'Lead Veterinarian & Clinic Founder',
 		specialty: 'General Practice & Preventive Medicine',
-		credentials: 'DVM, Fear-Free Certified',
+		credentials: 'BVSc, Fear-Free Certified',
 		bio: 'Passionate about low-stress veterinary visits, wellness protocols, and gentle routine soft-tissue surgeries for dogs and cats.',
 		board_cert: 'Fear-Free Certified Professional',
 		status: 'On Duty',
@@ -190,9 +190,9 @@ export const DEFAULT_SPECIALISTS: Specialist[] = [
 		name: 'Dr. Marcus Vance',
 		title: 'Associate Veterinarian',
 		specialty: 'Internal Health & In-House Diagnostics',
-		credentials: 'DVM, CVA',
+		credentials: 'BVSc, CVA',
 		bio: 'Focuses on routine diagnostics, digital radiography, and managing chronic conditions in family pets with clear, friendly guidance.',
-		board_cert: 'Member, American Veterinary Medical Association (AVMA)',
+		board_cert: 'Member, South African Veterinary Association (SAVA)',
 		status: 'On Duty',
 		avatar_url: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400'
 	},
@@ -201,7 +201,7 @@ export const DEFAULT_SPECIALISTS: Specialist[] = [
 		name: 'Dr. Sarah Jenkins',
 		title: 'Senior Pet & Integrative Care Veterinarian',
 		specialty: 'Geriatric Health & Acupuncture',
-		credentials: 'DVM, CVA (Chi University)',
+		credentials: 'BVSc, CVA (Chi University)',
 		bio: 'Dedicated to keeping senior pets comfortable and active with gentle mobility therapy, pain management, and nutritional support.',
 		board_cert: 'Certified Veterinary Acupuncturist (CVA)',
 		status: 'In Consult',
@@ -210,11 +210,11 @@ export const DEFAULT_SPECIALISTS: Specialist[] = [
 	{
 		id: 'spec_04',
 		name: 'Jessica Rodriguez',
-		title: 'Head Veterinary Technician & Care Lead',
+		title: 'Head Veterinary Nurse & Care Lead',
 		specialty: 'Dental Prophylaxis & Patient Comfort',
-		credentials: 'RVT, Fear-Free Certified',
+		credentials: 'Dip Vet Nursing, Fear-Free Certified',
 		bio: 'Oversees surgical nursing, dental scale & polishes, and ensures every patient receives warm, loving care during their visit.',
-		board_cert: 'Registered Veterinary Technician (RVT)',
+		board_cert: 'Registered Veterinary Nurse (SAVC)',
 		status: 'On Duty',
 		avatar_url: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400'
 	}
@@ -226,7 +226,7 @@ export const SAMPLE_INITIAL_APPOINTMENTS: Appointment[] = [
 		reference_code: 'MKN-7821-CF',
 		client_name: 'Sarah Jenkins',
 		email: 's.jenkins@example.com',
-		phone: '+1 (555) 234-5678',
+		phone: '+27 (0) 21 555 8389',
 		pet_name: 'Milo',
 		species: 'Canine',
 		breed: 'Golden Retriever',
@@ -258,7 +258,7 @@ export const SAMPLE_INITIAL_APPOINTMENTS: Appointment[] = [
 		reference_code: 'MKN-9412-CF',
 		client_name: 'David Miller',
 		email: 'd.miller@example.com',
-		phone: '+1 (555) 876-5432',
+		phone: '+27 (0) 82 876 5432',
 		pet_name: 'Luna',
 		species: 'Feline',
 		breed: 'Domestic Shorthair',
@@ -279,7 +279,7 @@ export const SAMPLE_INITIAL_APPOINTMENTS: Appointment[] = [
 		reference_code: 'MKN-3109-CF',
 		client_name: 'Amara Patel',
 		email: 'amara.patel@example.com',
-		phone: '+1 (555) 912-3456',
+		phone: '+27 (0) 83 912 3456',
 		pet_name: 'Buster',
 		species: 'Canine',
 		breed: 'Beagle',
@@ -302,7 +302,7 @@ export const DEFAULT_TRIAGE_CAPACITY: TriageCapacity = {
 	activeSpecialists: 3,
 	erBedCapacityPercent: 45,
 	avgTriageLatencySeconds: 8,
-	edgeNode: 'IAD-01',
+	edgeNode: 'JNB-01',
 	triageQueueCount: 1
 };
 
@@ -333,17 +333,17 @@ export const CLINICAL_TECH_SPECS = [
 	}
 ];
 
-export const PRICING_WELLNESS_PLANS = [
+export const PRICING_WELLNESS_PLANS: WellnessPlan[] = [
 	{
 		id: 'plan_puppy_kitten',
 		name: 'Puppy & Kitten Starter Plan',
 		tagline: 'Complete foundational protection for your new companion’s critical first year.',
-		monthly_price_dollars: 39,
-		annual_price_dollars: 420,
+		monthly_price_rand: 380,
+		annual_price_rand: 3990,
 		popular: false,
 		features: [
 			'Unlimited routine wellness exams & checkups',
-			'Full puppy/kitten core vaccine series (Rabies, DHPP/FVRCP)',
+			'Full puppy/kitten core vaccine series (Rabies, 5-in-1 / 3-in-1)',
 			'Deworming series & parasite fecal screening',
 			'Universal microchip implantation & lifetime registry',
 			'10% off elective Spay or Neuter surgery',
@@ -355,13 +355,13 @@ export const PRICING_WELLNESS_PLANS = [
 		id: 'plan_adult_companion',
 		name: 'Adult Companion Complete',
 		tagline: 'Year-round preventative care, vaccines, and dental health for adult dogs and cats.',
-		monthly_price_dollars: 59,
-		annual_price_dollars: 640,
+		monthly_price_rand: 550,
+		annual_price_rand: 5800,
 		popular: true,
 		badge: 'Most Popular',
 		features: [
 			'Unlimited routine wellness & preventative exams',
-			'Annual core vaccine boosters & heartworm screening',
+			'Annual core vaccine boosters & parasite screening',
 			'Annual full ultrasonic dental cleaning & polish',
 			'Annual baseline blood chemistry & urinalysis panel',
 			'10% off all in-house digital X-rays & sick visits',
@@ -373,8 +373,8 @@ export const PRICING_WELLNESS_PLANS = [
 		id: 'plan_senior_care',
 		name: 'Senior Pet Golden Years',
 		tagline: 'Proactive comfort, arthritis care, and organ health monitoring for aging companions.',
-		monthly_price_dollars: 79,
-		annual_price_dollars: 860,
+		monthly_price_rand: 750,
+		annual_price_rand: 7900,
 		popular: false,
 		features: [
 			'Everything in Adult Companion Complete',
@@ -387,4 +387,5 @@ export const PRICING_WELLNESS_PLANS = [
 		cta: 'Enroll Senior Pet'
 	}
 ];
+
 

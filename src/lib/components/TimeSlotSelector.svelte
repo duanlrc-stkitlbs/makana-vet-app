@@ -16,8 +16,8 @@
 			const d = new Date(base);
 			d.setDate(base.getDate() + i);
 			const iso = d.toISOString().split('T')[0];
-			const dayName = i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : d.toLocaleDateString('en-US', { weekday: 'short' });
-			const dateFormatted = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+			const dayName = i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : d.toLocaleDateString('en-ZA', { weekday: 'short' });
+			const dateFormatted = d.toLocaleDateString('en-ZA', { month: 'short', day: 'numeric' });
 			days.push({ iso, dayName, dateFormatted });
 		}
 		return days;
@@ -26,7 +26,7 @@
 	const timeSlots = [
 		{ period: 'Morning Slots', slots: ['08:30 AM', '09:30 AM', '10:45 AM', '11:30 AM'] },
 		{ period: 'Afternoon Slots', slots: ['01:15 PM', '02:30 PM', '03:45 PM', '04:30 PM'] },
-		{ period: 'Evening & Priority', slots: ['05:30 PM', '06:45 PM', 'Immediate ER'] }
+		{ period: 'Late Afternoon & Urgent', slots: ['05:00 PM', '05:30 PM', 'Same-Day Urgent'] }
 	];
 </script>
 
@@ -62,7 +62,7 @@
 	<div>
 		<div class="flex items-center justify-between mb-2 text-xs font-mono">
 			<span class="text-slate-600 font-semibold uppercase">2. Select Consultation Window</span>
-			<span class="text-slate-400 font-normal">Eastern Time (ET)</span>
+			<span class="text-slate-400 font-normal">Clinic Time (SAST)</span>
 		</div>
 
 		<div class="space-y-3">
@@ -79,7 +79,7 @@
 									? 'bg-emerald-700 text-white border-emerald-800 shadow-sm font-bold'
 									: 'bg-white text-slate-700 border-slate-200/90 hover:border-slate-300 hover:bg-slate-50'}"
 							>
-								{#if slot.includes('ER')}
+								{#if slot.includes('Urgent')}
 									<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
 								{/if}
 								<span>{slot}</span>
@@ -91,3 +91,4 @@
 		</div>
 	</div>
 </div>
+

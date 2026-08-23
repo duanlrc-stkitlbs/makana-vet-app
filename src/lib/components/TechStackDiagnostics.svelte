@@ -78,7 +78,7 @@
 					</div>
 					<div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
 						<div class="text-slate-500 text-[11px]">R2 Owner Download Fee</div>
-						<div class="text-xl font-bold text-emerald-400 mt-0.5">$0.00</div>
+						<div class="text-xl font-bold text-emerald-400 mt-0.5">R0.00</div>
 					</div>
 					<div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
 						<div class="text-slate-500 text-[11px]">Online Booking Sync</div>

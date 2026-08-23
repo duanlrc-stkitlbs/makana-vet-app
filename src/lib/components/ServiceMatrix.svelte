@@ -46,7 +46,7 @@
 	);
 
 	function formatPrice(cents: number): string {
-		return `$${(cents / 100).toLocaleString('en-US')}`;
+		return `R${(cents / 100).toLocaleString('en-ZA')}`;
 	}
 
 	function handleBook(service: Service) {
@@ -83,7 +83,7 @@
 			<!-- Live Price Transparency Pill -->
 			<div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600">
 				<div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-					$0
+					R0
 				</div>
 				<div>
 					<div class="font-bold text-slate-900">Zero Surprise Fees</div>

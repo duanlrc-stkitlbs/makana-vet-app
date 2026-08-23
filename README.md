@@ -26,7 +26,7 @@
    - **Interactive Micro-Preview Card** with live daily schedule queue, in-house lab telemetry, and instant Pet EHR record portal.
 3. **Interactive Service Matrix (Bento Grid):**
    - Filter tabs: *All Services*, *Wellness & Vaccines*, *Dental Care*, *Routine Surgeries*, *In-House Lab & X-Ray*, *Sick Pet & Urgent*.
-   - Bento cards with fixed fees ($55 – $340), turnaround times, and 1-click booking triggers.
+   - Bento cards with fixed fees (R480 – R3,200), turnaround times, and 1-click booking triggers.
 4. **Online Intake & Booking Engine:**
    - **Species Selector:** Canine (Dog), Feline (Cat), Small Mammal (Rabbit/Guinea Pig), Avian (Bird), Exotic Pet.
    - **Reason for Visit / Urgency:** *Routine Wellness & Vaccines*, *Sick Pet Visit*, *Same-Day Urgent Visit*.
@@ -34,15 +34,15 @@
    - **Time Slot Selector:** Dynamic appointment calendar window synchronized with D1 edge reservations.
    - **Real-Time Booking Confirmation:** Generates unique tracking tokens (e.g. `MKN-7821-CF`), summary printouts, and immediate D1/R2 sync.
 5. **Transparency & Wellness Plans:**
-   - SaaS-style toggle between **Monthly Wellness Plans** (*Puppy & Kitten Starter* $39/mo, *Adult Companion Complete* $59/mo, *Senior Golden Years* $79/mo) and the **Standard Procedure Fee Schedule**.
+   - SaaS-style toggle between **Monthly Wellness Plans** (*Puppy & Kitten Starter* R380/mo, *Adult Companion Complete* R550/mo, *Senior Golden Years* R750/mo) and the **Standard Procedure Fee Schedule**.
 6. **In-House Diagnostic & Surgical Facilities:**
    - Specifications for *Sound HD Digital Radiography*, *IDEXX Catalyst & ProCyte Lab Suite*, *Midmark Ultrasonic Dental Suite*, and *Dedicated Soft-Tissue Surgical Suite*.
 7. **Compassionate Veterinary Care Team:**
-   - Team profiles for Dr. Maya Lin (Lead Vet & Founder), Dr. Marcus Vance (Associate Vet), Dr. Sarah Jenkins (Senior Pet & Acupuncture), and Jessica Rodriguez (RVT & Patient Care Lead).
+   - Team profiles for Dr. Maya Lin (Lead Vet & Founder), Dr. Marcus Vance (Associate Vet), Dr. Sarah Jenkins (Senior Pet & Acupuncture), and Jessica Rodriguez (Head Veterinary Nurse & Care Lead).
 8. **Pet EHR Record & Attachment Lookup Drawer:**
    - Search by reference code (or test with sample tokens: `MKN-7821-CF`, `MKN-9412-CF`, `MKN-3109-CF`) to view visit status and download attached R2 records.
 9. **Footer & Urgent Care Guidance:**
-   - Daytime urgent care and direct-dial hotline (`+1 (800) 555-8389`).
+   - Daytime urgent care and direct-dial hotline (`+27 (0) 21 555 8389`).
    - Clinic hours: Mon–Fri 8:00 AM – 6:00 PM, Sat 8:30 AM – 2:00 PM (Emergency partner referral for nights).
    - Live Edge latency & node health ping component (`/api/health`).
    - Schema.org structured `VeterinaryCare` JSON-LD metadata for local SEO.

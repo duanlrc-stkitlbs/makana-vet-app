@@ -73,6 +73,18 @@ export interface TriageCapacity {
 	triageQueueCount: number;
 }
 
+export interface WellnessPlan {
+	id: string;
+	name: string;
+	tagline: string;
+	monthly_price_rand: number;
+	annual_price_rand: number;
+	popular: boolean;
+	badge?: string;
+	features: string[];
+	cta: string;
+}
+
 export interface EdgeHealthResponse {
 	status: 'healthy' | 'degraded';
 	edgeLocation: string;
@@ -82,4 +94,5 @@ export interface EdgeHealthResponse {
 	latencyMs: number;
 	version: string;
 }
+
 

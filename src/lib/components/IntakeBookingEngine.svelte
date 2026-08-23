@@ -158,7 +158,7 @@
 	}
 
 	function formatPrice(cents: number): string {
-		return `$${(cents / 100).toLocaleString('en-US')}`;
+		return `R${(cents / 100).toLocaleString('en-ZA')}`;
 	}
 </script>
 
@@ -563,7 +563,7 @@
 							<div class="flex items-center justify-between mb-1">
 								<span class="text-xs font-mono text-slate-500">Estimated Procedure Fee</span>
 								<span class="text-lg font-bold font-mono text-slate-950">
-									{formatPrice(activeServiceObj?.price_cents || 6500)}
+									{formatPrice(activeServiceObj?.price_cents || 55000)}
 								</span>
 							</div>
 							<div class="text-[11px] font-mono text-emerald-700">

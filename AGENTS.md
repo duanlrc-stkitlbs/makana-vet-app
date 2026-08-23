@@ -51,7 +51,7 @@
 ### Environment Variables (`[vars]`)
 - `CLINIC_NAME`: `"Makana Family Veterinary Clinic"`
 - `CLINIC_EDGELOCATION`: `"Global Edge Network"`
-- `EMERGENCY_HOTLINE`: `"+1 (800) 555-8389"`
+- `EMERGENCY_HOTLINE`: `"+27 (0) 21 555 8389"`
 - `MAX_UPLOAD_SIZE_BYTES`: `"10485760"` (10 MB upload ceiling)
 
 ---
@@ -67,7 +67,7 @@ makana-vet-app/
 ├── vite.config.ts                              # Vite bundler configuration
 ├── tailwind.config.js                          # Theme colors (clinical-*, surface-*), fonts & shadows
 ├── wrangler.toml                               # D1 (`DB`) & R2 (`RECORDS_BUCKET`) bindings
-├── schema.sql                                  # D1 SQLite DDL schema + initial general clinic seed data
+├── schema.sql                                  # D1 SQLite DDL schema + initial general clinic seed data (ZAR)
 ├── src/
 │   ├── app.d.ts                                # Cloudflare platform binding types (DB, RECORDS_BUCKET, cf)
 │   ├── app.html                                # HTML shell, fonts (Inter, JetBrains Mono), meta tags
@@ -76,7 +76,7 @@ makana-vet-app/
 │   │   ├── types/
 │   │   │   └── index.ts                        # TypeScript interfaces (Service, Appointment, Specialist, etc.)
 │   │   ├── data/
-│   │   │   └── mock-data.ts                    # Fallback datasets and clinic specifications
+│   │   │   └── mock-data.ts                    # Fallback datasets and clinic specifications (ZAR)
 │   │   ├── server/
 │   │   │   ├── db.ts                           # D1 database client with parameterization & local memory fallback
 │   │   │   └── r2.ts                           # R2 client, MIME/size validator & object streaming
@@ -84,11 +84,11 @@ makana-vet-app/
 │   │       ├── Header.svelte                   # Sticky command bar, clinic status pill & lookup trigger
 │   │       ├── Hero.svelte                     # Hero headline, dual CTA & live micro-preview telemetry
 │   │       ├── TriageCapacityBadge.svelte      # Doctor availability & schedule telemetry pill
-│   │       ├── ServiceMatrix.svelte            # Bento grid service catalogue with category filters
+│   │       ├── ServiceMatrix.svelte            # Bento grid service catalogue with category filters (ZAR)
 │   │       ├── IntakeBookingEngine.svelte      # 4-step pet intake form with D1/R2 sync
 │   │       ├── FileDropzone.svelte             # R2 file upload dropzone with type & size validation
-│   │       ├── TimeSlotSelector.svelte         # Scheduled consultation window selector
-│   │       ├── PricingTiers.svelte             # Wellness plans vs procedure schedule toggle
+│   │       ├── TimeSlotSelector.svelte         # Scheduled consultation window selector (SAST)
+│   │       ├── PricingTiers.svelte             # Wellness plans (ZAR) vs procedure schedule toggle
 │   │       ├── TechStackDiagnostics.svelte     # Digital X-Ray, IDEXX lab, dental & edge specs
 │   │       ├── SpecialistsSection.svelte       # Friendly veterinary care team profiles
 │   │       ├── AppointmentLookupModal.svelte   # Reference code / phone search & R2 download modal
@@ -115,8 +115,8 @@ makana-vet-app/
 - [x] **General Practice Clinic Transformation:**
   - Rebranded from trauma/emergency hospital to neighborhood general veterinary clinic (*Makana Family Veterinary Clinic*).
   - Configured 10 general practice services (annual wellness exams, core vaccines, dental scale/polish, spay/neuter, digital X-rays, 15-min in-house lab).
-  - Seeded compassionate care team (Dr. Maya Lin, Dr. Marcus Vance, Dr. Sarah Jenkins, Jessica Rodriguez RVT).
-  - Reconfigured pricing with monthly wellness plans (Puppy/Kitten Starter $39/mo, Adult Companion $59/mo, Senior Golden Years $79/mo) and standardized clinic fee schedule.
+  - Seeded compassionate care team (Dr. Maya Lin, Dr. Marcus Vance, Dr. Sarah Jenkins, Jessica Rodriguez RVN).
+  - Reconfigured pricing to South African Rand (ZAR) with monthly wellness plans (Puppy/Kitten Starter R380/mo, Adult Companion R550/mo, Senior Golden Years R750/mo) and standardized clinic fee schedule (R480–R3,200).
   - Replaced trauma emergency telemetry with clinic availability, daytime urgent visit slots, and emergency partner referral guidance.
 - [x] **Server-Side Upload Security:** Whitelisted MIME types (`application/pdf`, `image/jpeg`, `image/png`, `image/webp`) with a 10MB size ceiling.
 - [x] **Version Control:** Repository updated and pushed to `https://github.com/duanlrc-stkitlbs/makana-vet-app`.
