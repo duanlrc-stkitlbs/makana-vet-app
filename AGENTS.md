@@ -1,6 +1,6 @@
 # AGENTS.md
 
-> Developer & AI Agent Reference for **Makana Veterinary Medicine** (Cloudflare Edge Clinical SaaS).
+> Developer & AI Agent Reference for **Makana Family Veterinary Clinic** (Cloudflare Edge Clinical App).
 
 ---
 
@@ -21,18 +21,18 @@
                    |                                                                             |
                    v                                                                             v
 +-------------------------------------+                                       +-------------------------------------+
-|         Cloudflare D1 (Edge)        |                                       |          Cloudflare R2 (PACS)       |
+|         Cloudflare D1 (Edge)        |                                       |          Cloudflare R2 (Vault)      |
 |    Database: makana-vet-d1          |                                       |      Bucket: makana-vet-records     |
-|  - Appointments & Clinical Records  |                                       |  - Diagnostic Imaging (DICOM, X-Ray)|
-|  - Services & Pricing Matrix        |                                       |  - Owner Attachments & Lab Workups  |
-|  - Specialist Diplomate Directory   |                                       |  - Zero Egress Bandwidth Fees       |
+|  - Appointments & Clinical Records  |                                       |  - Diagnostic X-Rays & Lab Workups  |
+|  - Services & Pricing Matrix        |                                       |  - Owner Vaccine Records & Records  |
+|  - Veterinarians & Staff Directory  |                                       |  - Zero Egress Bandwidth Fees       |
 +-------------------------------------+                                       +-------------------------------------+
 ```
 
 - **Frontend & SSR:** SvelteKit (`@sveltejs/adapter-cloudflare`) leveraging Svelte 5 runes (`$state`, `$derived`, `$props`, `$effect`).
-- **Styling:** Tailwind CSS + custom clinical palette, monospace data typography (`JetBrains Mono`), and SVG icons.
+- **Styling:** Tailwind CSS + custom clinic palette (`emerald-700`, `surface-*`), monospace data typography (`JetBrains Mono`), and SVG icons.
 - **Edge Storage & DB:**
-  - **D1 SQLite:** Relational appointments, services, specialists, and attachment metadata.
+  - **D1 SQLite:** Relational appointments, general practice services, veterinarians/staff, and attachment metadata.
   - **R2 Storage:** Direct streaming of binary medical records (PDF, PNG, JPEG, WEBP) with server-side validation.
 - **Resilience Strategy:** Zero-config in-memory fallback layer in `$lib/server/db.ts` and `$lib/server/r2.ts` for instant `vite dev` testing without active Cloudflare credentials.
 
@@ -49,7 +49,7 @@
 | **Pages Project** | — | `makana-vet-app` | Production URL: `https://makana-vet-app.pages.dev` |
 
 ### Environment Variables (`[vars]`)
-- `CLINIC_NAME`: `"Makana Clinical Veterinary Medicine"`
+- `CLINIC_NAME`: `"Makana Family Veterinary Clinic"`
 - `CLINIC_EDGELOCATION`: `"Global Edge Network"`
 - `EMERGENCY_HOTLINE`: `"+1 (800) 555-8389"`
 - `MAX_UPLOAD_SIZE_BYTES`: `"10485760"` (10 MB upload ceiling)
@@ -67,7 +67,7 @@ makana-vet-app/
 ├── vite.config.ts                              # Vite bundler configuration
 ├── tailwind.config.js                          # Theme colors (clinical-*, surface-*), fonts & shadows
 ├── wrangler.toml                               # D1 (`DB`) & R2 (`RECORDS_BUCKET`) bindings
-├── schema.sql                                  # D1 SQLite DDL schema + initial clinical seed data
+├── schema.sql                                  # D1 SQLite DDL schema + initial general clinic seed data
 ├── src/
 │   ├── app.d.ts                                # Cloudflare platform binding types (DB, RECORDS_BUCKET, cf)
 │   ├── app.html                                # HTML shell, fonts (Inter, JetBrains Mono), meta tags
@@ -76,26 +76,26 @@ makana-vet-app/
 │   │   ├── types/
 │   │   │   └── index.ts                        # TypeScript interfaces (Service, Appointment, Specialist, etc.)
 │   │   ├── data/
-│   │   │   └── mock-data.ts                    # Fallback datasets and clinical specifications
+│   │   │   └── mock-data.ts                    # Fallback datasets and clinic specifications
 │   │   ├── server/
 │   │   │   ├── db.ts                           # D1 database client with parameterization & local memory fallback
 │   │   │   └── r2.ts                           # R2 client, MIME/size validator & object streaming
 │   │   └── components/
-│   │       ├── Header.svelte                   # Sticky command bar, triage badge & lookup trigger
+│   │       ├── Header.svelte                   # Sticky command bar, clinic status pill & lookup trigger
 │   │       ├── Hero.svelte                     # Hero headline, dual CTA & live micro-preview telemetry
-│   │       ├── TriageCapacityBadge.svelte      # Real-time triage telemetry pill
+│   │       ├── TriageCapacityBadge.svelte      # Doctor availability & schedule telemetry pill
 │   │       ├── ServiceMatrix.svelte            # Bento grid service catalogue with category filters
-│   │       ├── IntakeBookingEngine.svelte      # 4-step clinical intake form with D1/R2 sync
+│   │       ├── IntakeBookingEngine.svelte      # 4-step pet intake form with D1/R2 sync
 │   │       ├── FileDropzone.svelte             # R2 file upload dropzone with type & size validation
 │   │       ├── TimeSlotSelector.svelte         # Scheduled consultation window selector
 │   │       ├── PricingTiers.svelte             # Wellness plans vs procedure schedule toggle
-│   │       ├── TechStackDiagnostics.svelte     # 3.0T MRI, CT, Laparoscopic suites & edge specs
-│   │       ├── SpecialistsSection.svelte       # Board-certified diplomate profiles
+│   │       ├── TechStackDiagnostics.svelte     # Digital X-Ray, IDEXX lab, dental & edge specs
+│   │       ├── SpecialistsSection.svelte       # Friendly veterinary care team profiles
 │   │       ├── AppointmentLookupModal.svelte   # Reference code / phone search & R2 download modal
-│   │       └── Footer.svelte                   # 24/7 ER hotline & periodic /api/health ping
+│   │       └── Footer.svelte                   # Urgent care guidance, hours & periodic /api/health ping
 │   └── routes/
 │       ├── +layout.svelte                      # Root layout wrapper
-│       ├── +page.server.ts                     # Edge server load querying D1 services & specialists
+│       ├── +page.server.ts                     # Edge server load querying D1 services & staff
 │       ├── +page.svelte                        # Single-page application orchestration
 │       └── api/
 │           ├── appointments/
@@ -112,21 +112,16 @@ makana-vet-app/
 ## 4. Completed Milestones
 
 - [x] **Project Initialization:** Configured SvelteKit with Svelte 5, Tailwind CSS, and `@sveltejs/adapter-cloudflare`.
-- [x] **Database & Storage Architecture:** Designed `schema.sql` (appointments, attachments, services, specialists) and implemented `$lib/server/db.ts` + `$lib/server/r2.ts`.
+- [x] **General Practice Clinic Transformation:**
+  - Rebranded from trauma/emergency hospital to neighborhood general veterinary clinic (*Makana Family Veterinary Clinic*).
+  - Configured 10 general practice services (annual wellness exams, core vaccines, dental scale/polish, spay/neuter, digital X-rays, 15-min in-house lab).
+  - Seeded compassionate care team (Dr. Maya Lin, Dr. Marcus Vance, Dr. Sarah Jenkins, Jessica Rodriguez RVT).
+  - Reconfigured pricing with monthly wellness plans (Puppy/Kitten Starter $39/mo, Adult Companion $59/mo, Senior Golden Years $79/mo) and standardized clinic fee schedule.
+  - Replaced trauma emergency telemetry with clinic availability, daytime urgent visit slots, and emergency partner referral guidance.
 - [x] **Server-Side Upload Security:** Whitelisted MIME types (`application/pdf`, `image/jpeg`, `image/png`, `image/webp`) with a 10MB size ceiling.
-- [x] **Single-Page Flow Implementation:**
-  - Sticky Command Bar with real-time Triage Status.
-  - Interactive Micro-Preview card with Live Queue and PACS telemetry tabs.
-  - Bento grid Service Matrix with dynamic category filtering.
-  - Edge Intake & Booking Engine supporting species selection, clinical notes, and file attachments.
-  - Transparent pricing switcher (Monthly Wellness vs Fixed Procedure Schedule).
-  - Diagnostic hardware specifications and specialist diplomate directory.
-  - Appointment & medical record lookup modal.
-  - 24/7 ER emergency protocol with direct-dial anchors and Schema.org JSON-LD.
-- [x] **Version Control:** Repository initialized and pushed to `https://github.com/duanlrc-stkitlbs/makana-vet-app`.
+- [x] **Version Control:** Repository updated and pushed to `https://github.com/duanlrc-stkitlbs/makana-vet-app`.
 - [x] **Cloudflare Edge Provisioning & Deployment:**
-  - Created and seeded D1 database: `makana-vet-d1` (`58752a4f-9ef8-4dd9-97bb-4741ad5d21d7`).
-  - Created R2 bucket: `makana-vet-records`.
+  - Seeded remote D1 database: `makana-vet-d1` (`58752a4f-9ef8-4dd9-97bb-4741ad5d21d7`).
   - Deployed to Cloudflare Pages: `https://makana-vet-app.pages.dev`.
   - Verified live endpoints (`/api/health`, `/api/appointments`, `/api/appointments/:ref`).
 
@@ -169,3 +164,4 @@ npx wrangler pages deploy .svelte-kit/cloudflare --project-name=makana-vet-app -
 - **Health Check:** `GET https://makana-vet-app.pages.dev/api/health`
 - **Sample Record Lookup:** `GET https://makana-vet-app.pages.dev/api/appointments/MKN-7821-CF`
 - **GitHub Repository:** [https://github.com/duanlrc-stkitlbs/makana-vet-app](https://github.com/duanlrc-stkitlbs/makana-vet-app)
+
