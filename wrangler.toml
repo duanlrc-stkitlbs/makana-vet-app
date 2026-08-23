@@ -1,0 +1,23 @@
+name = "makana-vet-app"
+pages_build_output_dir = ".svelte-kit/cloudflare"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+CLINIC_NAME = "Makana Clinical Veterinary Medicine"
+CLINIC_EDGELOCATION = "Global Edge Network"
+EMERGENCY_HOTLINE = "+1 (800) 555-8389"
+MAX_UPLOAD_SIZE_BYTES = "10485760"
+
+# Cloudflare D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "makana-vet-d1"
+database_id = "makana-vet-d1-prod"
+migrations_dir = "migrations"
+
+# Cloudflare R2 Bucket Binding for Pet Medical Records & Diagnostic Assets
+[[r2_buckets]]
+binding = "RECORDS_BUCKET"
+bucket_name = "makana-vet-records"
+preview_bucket_name = "makana-vet-records-preview"

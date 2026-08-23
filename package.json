@@ -1,0 +1,37 @@
+{
+  "name": "makana-vet-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "d1:local": "wrangler d1 execute makana-vet-d1 --local --file=./schema.sql",
+    "d1:remote": "wrangler d1 execute makana-vet-d1 --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-cloudflare": "^5.0.3",
+    "@sveltejs/kit": "^2.17.3",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^22.13.5",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "lucide-svelte": "^0.475.0",
+    "postcss": "^8.5.3",
+    "svelte": "^5.20.2",
+    "svelte-check": "^4.1.4",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.1",
+    "wrangler": "^3.109.2"
+  },
+  "dependencies": {
+    "@lucide/svelte": "^1.33.0"
+  }
+}

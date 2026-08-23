@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		color-scheme: light;
+	}
+
+	body {
+		background-color: #fafbfd;
+		color: #0f172a;
+		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+	}
+}
+
+/* Fine Grid Pattern for Hero and Clinical Tech sections */
+.bg-grid-pattern {
+	background-size: 32px 32px;
+	background-image: 
+		linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+	background-size: 24px 24px;
+	background-image: radial-gradient(rgba(203, 213, 225, 0.7) 1px, transparent 1px);
+}
+
+/* Subtle glowing pulse */
+@keyframes pulse-subtle {
+	0%, 100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.75;
+		transform: scale(1.05);
+	}
+}
+
+.animate-pulse-subtle {
+	animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Modern Card Glass & Border Styles */
+.bento-card {
+	background-color: #ffffff;
+	border: 1px solid rgba(226, 232, 240, 0.9);
+	box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+	transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+	border-color: rgba(148, 163, 184, 0.6);
+	box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.07), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+}
+
+/* Custom crisp scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #cbd5e1;
+	border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #94a3b8;
+}
