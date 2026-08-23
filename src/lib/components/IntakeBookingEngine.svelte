@@ -49,32 +49,32 @@
 	const speciesOptions: { id: SpeciesType; label: string; icon: string }[] = [
 		{ id: 'Canine', label: 'Canine (Dog)', icon: '🐕' },
 		{ id: 'Feline', label: 'Feline (Cat)', icon: '🐈' },
-		{ id: 'Exotic', label: 'Exotic / Small', icon: '🐇' },
+		{ id: 'Small Mammal', label: 'Rabbit / Small Pet', icon: '🐇' },
 		{ id: 'Avian', label: 'Avian (Bird)', icon: '🦜' },
-		{ id: 'Equine', label: 'Equine', icon: '🐎' }
+		{ id: 'Exotic', label: 'Exotic / Reptile', icon: '🦎' }
 	];
 
 	const urgencyOptions: { id: UrgencyLevel; label: string; desc: string; badge: string; color: string }[] = [
 		{
 			id: 'routine',
-			label: 'Routine Consultation',
-			desc: 'Standard wellness, vaccination, elective procedure',
-			badge: 'Standard',
+			label: 'Routine Wellness & Vaccines',
+			desc: 'Annual physical, puppy/kitten shots, dental check, microchip',
+			badge: 'Routine',
 			color: 'border-slate-200 hover:border-slate-300'
 		},
 		{
-			id: 'priority',
-			label: 'Priority Diagnostic',
-			desc: 'Persistent symptoms, MRI/CT needed, second opinion',
-			badge: 'Priority',
+			id: 'sick_visit',
+			label: 'Sick Pet Visit',
+			desc: 'Ear infection, mild limp, skin rash, mild vomiting or lethargy',
+			badge: 'Sick Visit',
 			color: 'border-amber-200 bg-amber-50/30 hover:border-amber-400'
 		},
 		{
-			id: 'critical',
-			label: 'Critical ER Triage',
-			desc: 'Acute trauma, respiratory distress, immediate bay prep',
-			badge: 'Immediate ER',
-			color: 'border-red-300 bg-red-50/40 hover:border-red-500'
+			id: 'urgent_day',
+			label: 'Same-Day Urgent Visit',
+			desc: 'Acute daytime concern, sudden pain, or minor injury',
+			badge: 'Same-Day',
+			color: 'border-emerald-300 bg-emerald-50/40 hover:border-emerald-500'
 		}
 	];
 
@@ -84,7 +84,7 @@
 
 		// Validation
 		if (!clientName.trim()) {
-			submitError = 'Please enter client/owner name.';
+			submitError = 'Please enter pet parent / owner name.';
 			return;
 		}
 		if (!email.trim() || !email.includes('@')) {
@@ -96,7 +96,7 @@
 			return;
 		}
 		if (!petName.trim()) {
-			submitError = 'Please enter your pet / patient name.';
+			submitError = 'Please enter your pet’s name.';
 			return;
 		}
 
@@ -131,13 +131,13 @@
 			const result = await response.json();
 
 			if (!response.ok || !result.success) {
-				throw new Error(result.error || 'Failed to confirm appointment with edge intake engine.');
+				throw new Error(result.error || 'Failed to confirm appointment booking.');
 			}
 
 			confirmedAppointment = result.appointment;
 		} catch (err: any) {
 			console.error('Submission error:', err);
-			submitError = err.message || 'An error occurred while submitting intake to Cloudflare edge.';
+			submitError = err.message || 'An error occurred while scheduling your appointment.';
 		} finally {
 			isSubmitting = false;
 		}
@@ -166,15 +166,15 @@
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Section Title -->
 		<div class="text-center max-w-3xl mx-auto mb-14">
-			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-mono mb-3 shadow-clinical-sm">
-				<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-				<span>EDGE INTAKE &amp; BOOKING ENGINE</span>
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-700 text-white text-xs font-mono mb-3 shadow-clinical-sm font-semibold">
+				<span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+				<span>ONLINE APPOINTMENT BOOKING</span>
 			</div>
 			<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
-				Direct Clinical Intake &amp; PACS Ingestion
+				Schedule Your Pet’s Visit Online
 			</h2>
 			<p class="mt-3 text-base text-slate-600">
-				Book specialized consultations, upload previous diagnostic scans directly to Cloudflare R2, and sync appointment records into Cloudflare D1 with sub-millisecond edge latency.
+				Select your preferred consultation window, upload previous vaccine or medical records to Cloudflare R2, and secure an instant confirmation.
 			</p>
 		</div>
 
@@ -183,27 +183,27 @@
 			<div class="max-w-3xl mx-auto bg-white rounded-3xl border border-emerald-200 shadow-clinical-lg p-8 sm:p-12 text-center animate-fade-in relative overflow-hidden">
 				<div class="absolute -right-12 -top-12 w-48 h-48 bg-emerald-50 rounded-full blur-2xl pointer-events-none"></div>
 
-				<div class="w-16 h-16 rounded-2xl bg-emerald-500 text-white flex items-center justify-center mx-auto mb-6 shadow-md shadow-emerald-500/20">
+				<div class="w-16 h-16 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mx-auto mb-6 shadow-md shadow-emerald-600/20">
 					<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
 						<polyline points="20 6 9 17 4 12" />
 					</svg>
 				</div>
 
 				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold mb-3">
-					<span>INTAKE SYNCHRONIZED TO CLOUDFLARE D1 &amp; R2</span>
+					<span>APPOINTMENT CONFIRMED • SAVED TO PET PORTAL</span>
 				</div>
 
 				<h3 class="text-2xl sm:text-3xl font-extrabold text-slate-950">
-					Consultation Confirmed &amp; Triaged
+					We Look Forward to Seeing You &amp; {confirmedAppointment.pet_name}!
 				</h3>
 				<p class="mt-2 text-sm sm:text-base text-slate-600 max-w-lg mx-auto">
-					Your patient profile and clinical attachments have been registered into the tertiary queue.
+					Your visit has been reserved and your clinical notes and records have been linked.
 				</p>
 
 				<!-- Reference Token Card -->
 				<div class="mt-8 p-6 rounded-2xl bg-slate-950 text-white text-left font-mono border border-slate-800 shadow-xl max-w-xl mx-auto">
 					<div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 text-xs">
-						<span class="text-slate-400">BOOKING REFERENCE TOKEN</span>
+						<span class="text-slate-400">APPOINTMENT REFERENCE TOKEN</span>
 						<span class="text-emerald-400 font-bold">STATUS: CONFIRMED</span>
 					</div>
 
@@ -217,22 +217,22 @@
 							<span class="font-bold text-white">{confirmedAppointment.pet_name} ({confirmedAppointment.species})</span>
 						</div>
 						<div>
-							<span class="text-slate-500 block">Client / Owner:</span>
+							<span class="text-slate-500 block">Owner / Parent:</span>
 							<span class="font-bold text-white">{confirmedAppointment.client_name}</span>
 						</div>
 						<div>
-							<span class="text-slate-500 block">Scheduled Window:</span>
+							<span class="text-slate-500 block">Scheduled Time:</span>
 							<span class="font-bold text-white">{confirmedAppointment.scheduled_at} @ {confirmedAppointment.time_slot}</span>
 						</div>
 						<div>
-							<span class="text-slate-500 block">Attending Clinician:</span>
-							<span class="font-bold text-emerald-300">{confirmedAppointment.clinician_assigned || 'Dr. Elena Rostova'}</span>
+							<span class="text-slate-500 block">Attending Doctor:</span>
+							<span class="font-bold text-emerald-300">{confirmedAppointment.clinician_assigned || 'Dr. Maya Lin'}</span>
 						</div>
 						{#if confirmedAppointment.attachments && confirmedAppointment.attachments.length > 0}
 							<div class="col-span-2 pt-2 border-t border-slate-800">
-								<span class="text-slate-500 block">R2 Stored Diagnostic Assets:</span>
+								<span class="text-slate-500 block">Attached Records:</span>
 								<span class="font-medium text-emerald-400">
-									{confirmedAppointment.attachments.length} file(s) attached &amp; synced
+									{confirmedAppointment.attachments.length} file(s) saved in R2 vault
 								</span>
 							</div>
 						{/if}
@@ -251,15 +251,15 @@
 							<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
 							<rect x="6" y="14" width="12" height="8"></rect>
 						</svg>
-						<span>Print Clinical Summary</span>
+						<span>Print Visit Details</span>
 					</button>
 
 					<button
 						type="button"
 						onclick={resetForm}
-						class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-slate-950 hover:bg-slate-800 text-sm transition-all shadow-sm"
+						class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-emerald-700 hover:bg-emerald-800 text-sm transition-all shadow-sm"
 					>
-						<span>Register Another Patient</span>
+						<span>Book Another Pet</span>
 					</button>
 				</div>
 			</div>
@@ -275,15 +275,15 @@
 								1
 							</div>
 							<div>
-								<h3 class="text-lg font-bold text-slate-900">Patient &amp; Species Profile</h3>
-								<p class="text-xs text-slate-500 font-mono">Biometric attributes for veterinary EHR records</p>
+								<h3 class="text-lg font-bold text-slate-900">Pet &amp; Species Information</h3>
+								<p class="text-xs text-slate-500 font-mono">Basic details about your furry family member</p>
 							</div>
 						</div>
 
 						<!-- Species Selector -->
 						<div class="mb-6">
 							<span class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-2">
-								Select Patient Species *
+								Select Species *
 							</span>
 							<div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
 								{#each speciesOptions as sp}
@@ -305,27 +305,27 @@
 						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 							<div>
 								<label for="petName" class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-1.5">
-									Patient / Pet Name *
+									Pet's Name *
 								</label>
 								<input
 									id="petName"
 									type="text"
 									bind:value={petName}
 									required
-									placeholder="e.g. Zeus, Luna, Thor"
+									placeholder="e.g. Milo, Luna, Buster"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
 
 							<div>
 								<label for="breed" class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-1.5">
-									Breed / Specific Type
+									Breed / Mix
 								</label>
 								<input
 									id="breed"
 									type="text"
 									bind:value={breed}
-									placeholder="e.g. German Shepherd, Domestic Shorthair"
+									placeholder="e.g. Golden Retriever, Domestic Shorthair"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
@@ -339,21 +339,21 @@
 									type="number"
 									step="0.1"
 									bind:value={ageYears}
-									placeholder="e.g. 3.5"
+									placeholder="e.g. 2.5"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
 
 							<div>
 								<label for="weightKg" class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-1.5">
-									Weight (kg)
+									Weight (kg or approx)
 								</label>
 								<input
 									id="weightKg"
 									type="number"
 									step="0.1"
 									bind:value={weightKg}
-									placeholder="e.g. 28.4"
+									placeholder="e.g. 14.5"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
@@ -362,7 +362,7 @@
 						<!-- Urgency Level Selection -->
 						<div class="mt-6 pt-5 border-t border-slate-100">
 							<span class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-2.5">
-								Clinical Urgency Level *
+								Reason For Visit / Urgency *
 							</span>
 							<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
 								{#each urgencyOptions as u}
@@ -399,22 +399,22 @@
 								2
 							</div>
 							<div>
-								<h3 class="text-lg font-bold text-slate-900">Owner / Client Information</h3>
-								<p class="text-xs text-slate-500 font-mono">For encrypted appointment verification &amp; telemetry updates</p>
+								<h3 class="text-lg font-bold text-slate-900">Pet Parent / Owner Contact</h3>
+								<p class="text-xs text-slate-500 font-mono">For appointment reminders and medical record notifications</p>
 							</div>
 						</div>
 
 						<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 							<div>
 								<label for="clientName" class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-1.5">
-									Full Name *
+									Your Full Name *
 								</label>
 								<input
 									id="clientName"
 									type="text"
 									bind:value={clientName}
 									required
-									placeholder="e.g. Dr. Arthur Hayes"
+									placeholder="e.g. Sarah Jenkins"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
@@ -428,7 +428,7 @@
 									type="email"
 									bind:value={email}
 									required
-									placeholder="e.g. client@domain.com"
+									placeholder="e.g. sarah@example.com"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
@@ -442,7 +442,7 @@
 									type="tel"
 									bind:value={phone}
 									required
-									placeholder="e.g. +1 (555) 019-2831"
+									placeholder="e.g. +1 (555) 234-5678"
 									class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 								/>
 							</div>
@@ -456,15 +456,15 @@
 								3
 							</div>
 							<div>
-								<h3 class="text-lg font-bold text-slate-900">Clinical Protocol &amp; Diagnostic Records</h3>
-								<p class="text-xs text-slate-500 font-mono">Attach prior X-Rays, laboratory PDFs, or referral letters to Cloudflare R2</p>
+								<h3 class="text-lg font-bold text-slate-900">Service Selection &amp; Previous Records</h3>
+								<p class="text-xs text-slate-500 font-mono">Upload prior vaccine records, adoption certificates, or recent vet notes</p>
 							</div>
 						</div>
 
-						<!-- Clinical Service Selection Dropdown -->
+						<!-- Service Selection Dropdown -->
 						<div class="mb-5">
 							<label for="serviceSelect" class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-1.5">
-								Select Primary Service Protocol *
+								Select Primary Service *
 							</label>
 							<select
 								id="serviceSelect"
@@ -479,16 +479,16 @@
 							</select>
 						</div>
 
-						<!-- Symptoms & Clinical Notes -->
+						<!-- Symptoms & Notes -->
 						<div class="mb-6">
 							<label for="symptoms" class="block text-xs font-mono font-semibold text-slate-700 uppercase mb-1.5">
-								Presenting Symptoms / Clinical Notes
+								Notes or Symptoms to Share with the Vet
 							</label>
 							<textarea
 								id="symptoms"
 								bind:value={symptoms}
 								rows="3"
-								placeholder="Describe acute observations, duration of symptoms, past medical history, or current medications..."
+								placeholder="e.g. Scratching left ear for 3 days, due for annual rabies booster, or questions about diet..."
 								class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 bg-white"
 							></textarea>
 						</div>
@@ -507,8 +507,8 @@
 								4
 							</div>
 							<div>
-								<h3 class="text-lg font-bold text-slate-900">Schedule Consultation Window</h3>
-								<p class="text-xs text-slate-500 font-mono">Real-time edge reservation slot</p>
+								<h3 class="text-lg font-bold text-slate-900">Choose Appointment Time</h3>
+								<p class="text-xs text-slate-500 font-mono">Select a convenient date and time for your visit</p>
 							</div>
 						</div>
 
@@ -526,14 +526,14 @@
 					<div class="sticky top-24 rounded-3xl bg-white border border-slate-200/90 shadow-clinical-md p-6 sm:p-7 space-y-6">
 						<div>
 							<div class="flex items-center justify-between text-xs font-mono mb-2">
-								<span class="text-slate-500 uppercase">Consultation Summary</span>
-								<span class="text-emerald-700 font-bold">EDGE SECURE</span>
+								<span class="text-slate-500 uppercase">Appointment Summary</span>
+								<span class="text-emerald-700 font-bold">SECURE BOOKING</span>
 							</div>
 							<h3 class="text-xl font-extrabold text-slate-950">
-								{activeServiceObj?.title || 'Selected Clinical Service'}
+								{activeServiceObj?.title || 'Selected Service'}
 							</h3>
 							<p class="text-xs text-slate-500 mt-1 font-mono">
-								Category: <span class="capitalize font-semibold text-slate-700">{activeServiceObj?.category || 'Clinical'}</span>
+								Category: <span class="capitalize font-semibold text-slate-700">{activeServiceObj?.category?.replace('_', ' ') || 'General'}</span>
 							</p>
 						</div>
 
@@ -543,17 +543,17 @@
 								<span class="font-bold text-slate-900">{petName || '—'} ({species})</span>
 							</div>
 							<div class="flex justify-between">
-								<span class="text-slate-500">Urgency:</span>
-								<span class="font-bold uppercase {urgencyLevel === 'critical' ? 'text-red-600' : 'text-slate-800'}">
-									{urgencyLevel}
+								<span class="text-slate-500">Visit Type:</span>
+								<span class="font-bold capitalize text-slate-800">
+									{urgencyLevel.replace('_', ' ')}
 								</span>
 							</div>
 							<div class="flex justify-between">
-								<span class="text-slate-500">Window:</span>
+								<span class="text-slate-500">Schedule:</span>
 								<span class="font-bold text-slate-900">{scheduledDate} @ {selectedSlot}</span>
 							</div>
 							<div class="flex justify-between">
-								<span class="text-slate-500">R2 Attachments:</span>
+								<span class="text-slate-500">Attached Files:</span>
 								<span class="font-bold text-emerald-700">{attachedFiles.length} file(s)</span>
 							</div>
 						</div>
@@ -561,13 +561,13 @@
 						<!-- Pricing breakdown -->
 						<div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
 							<div class="flex items-center justify-between mb-1">
-								<span class="text-xs font-mono text-slate-500">Fixed Fee (All Inclusive)</span>
+								<span class="text-xs font-mono text-slate-500">Estimated Procedure Fee</span>
 								<span class="text-lg font-bold font-mono text-slate-950">
-									{formatPrice(activeServiceObj?.price_cents || 12500)}
+									{formatPrice(activeServiceObj?.price_cents || 6500)}
 								</span>
 							</div>
 							<div class="text-[11px] font-mono text-emerald-700">
-								✓ No hidden triage intake surcharges
+								✓ Clear transparent pricing
 							</div>
 						</div>
 
@@ -585,17 +585,17 @@
 						<button
 							type="submit"
 							disabled={isSubmitting}
-							class="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-slate-950 hover:bg-slate-800 active:scale-[0.98] disabled:opacity-60 transition-all flex items-center justify-center gap-2 shadow-md shadow-slate-950/10 text-sm font-sans"
+							class="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-emerald-700 hover:bg-emerald-800 active:scale-[0.98] disabled:opacity-60 transition-all flex items-center justify-center gap-2 shadow-md shadow-emerald-900/10 text-sm font-sans"
 						>
 							{#if isSubmitting}
 								<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
 									<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
 									<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
 								</svg>
-								<span>Piping to D1 &amp; R2...</span>
+								<span>Saving Appointment...</span>
 							{:else}
-								<span>Confirm Intake &amp; Reserve</span>
-								<svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<span>Confirm &amp; Schedule Visit</span>
+								<svg class="w-4 h-4 text-emerald-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M5 12h14"></path>
 									<path d="m12 5 7 7-7 7"></path>
 								</svg>
@@ -604,7 +604,7 @@
 
 						<div class="text-center">
 							<span class="text-[11px] font-mono text-slate-400">
-								Encrypted edge pipeline • HIPAA/Vet compliance
+								Confidential pet health records • Fast online confirmation
 							</span>
 						</div>
 					</div>
@@ -613,3 +613,4 @@
 		{/if}
 	</div>
 </section>
+

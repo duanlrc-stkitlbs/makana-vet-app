@@ -32,13 +32,13 @@
 		<!-- Section Header -->
 		<div class="text-center max-w-3xl mx-auto mb-12">
 			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 font-bold mb-3">
-				<span>TRANSPARENT PRICING &amp; MEMBERSHIP</span>
+				<span>TRANSPARENT PRICING &amp; WELLNESS PLANS</span>
 			</div>
 			<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
-				Predictable Clinical Care. No Surprises.
+				Predictable Care. No Hidden Surcharges.
 			</h2>
 			<p class="mt-3 text-base text-slate-600">
-				Choose between comprehensive monthly wellness memberships or explore our fixed-rate transparent procedure catalogue.
+				Keep your companions healthy year-round with comprehensive monthly wellness plans or explore our fixed-rate clinic fee schedule.
 			</p>
 
 			<!-- Toggle: Wellness Plans vs Direct Procedures -->
@@ -59,7 +59,7 @@
 						? 'bg-white text-slate-950 shadow-sm'
 						: 'text-slate-600 hover:text-slate-900'}"
 				>
-					Direct Procedure Fee Schedule
+					Standard Procedure Fee Schedule
 				</button>
 			</div>
 		</div>
@@ -83,7 +83,7 @@
 					></div>
 				</button>
 				<span class={billingCycle === 'annual' ? 'font-bold text-slate-900' : 'text-slate-500'}>
-					Annual Prepay <span class="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 text-xs">Save ~12%</span>
+					Annual Prepay <span class="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 text-xs">Save ~10%</span>
 				</span>
 			</div>
 
@@ -105,7 +105,7 @@
 							<div class="flex items-center justify-between">
 								<h3 class="text-xl font-bold tracking-tight">{plan.name}</h3>
 								{#if !plan.popular}
-									<span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Tier</span>
+									<span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Plan</span>
 								{/if}
 							</div>
 
@@ -124,7 +124,7 @@
 									</span>
 								</div>
 								<div class="text-[11px] font-mono mt-1 {plan.popular ? 'text-emerald-400' : 'text-emerald-700'}">
-									Zero deductible • Automatic edge renewal
+									Zero deductible • Cancel or adjust anytime
 								</div>
 							</div>
 
@@ -165,8 +165,8 @@
 			<!-- Direct Transparent Procedure Schedule Table -->
 			<div class="max-w-5xl mx-auto rounded-3xl bg-white border border-slate-200 shadow-clinical-sm overflow-hidden">
 				<div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs font-mono">
-					<span class="text-slate-700 font-bold uppercase">Standardized Clinical Fee Schedule (D1 Bound)</span>
-					<span class="text-emerald-700 font-semibold">100% Guaranteed Price Protection</span>
+					<span class="text-slate-700 font-bold uppercase">Standardized Clinic Fee Schedule</span>
+					<span class="text-emerald-700 font-semibold">100% Upfront Estimates</span>
 				</div>
 
 				<div class="divide-y divide-slate-100">
@@ -175,7 +175,7 @@
 							<div class="space-y-1">
 								<div class="flex items-center gap-2">
 									<span class="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-slate-100 text-slate-700 font-semibold">
-										{s.category}
+										{s.category.replace('_', ' ')}
 									</span>
 									<h4 class="text-sm sm:text-base font-bold text-slate-900">{s.title}</h4>
 								</div>
@@ -187,7 +187,7 @@
 									<div class="text-lg font-extrabold font-mono text-slate-950">
 										${(s.price_cents / 100).toLocaleString('en-US')}
 									</div>
-									<div class="text-[11px] font-mono text-slate-400">{s.duration_minutes} min window</div>
+									<div class="text-[11px] font-mono text-slate-400">{s.duration_minutes} min consult</div>
 								</div>
 
 								<button
@@ -195,9 +195,9 @@
 									onclick={() => {
 										scrollTo('intake');
 									}}
-									class="px-3.5 py-2 rounded-xl text-xs font-bold font-mono bg-slate-100 text-slate-800 hover:bg-slate-950 hover:text-white transition-all border border-slate-200"
+									class="px-3.5 py-2 rounded-xl text-xs font-bold font-mono bg-slate-100 text-slate-800 hover:bg-emerald-700 hover:text-white transition-all border border-slate-200"
 								>
-									Select
+									Book
 								</button>
 							</div>
 						</div>
@@ -207,3 +207,4 @@
 		{/if}
 	</div>
 </section>
+

@@ -69,12 +69,12 @@
 			<!-- Header -->
 			<div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
 				<div class="flex items-center gap-2.5">
-					<div class="w-8 h-8 rounded-lg bg-slate-950 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
+					<div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-mono font-bold text-sm">
 						🔍
 					</div>
 					<div>
-						<h3 class="text-lg font-bold text-slate-900">EHR Appointment &amp; PACS Lookup</h3>
-						<p class="text-xs text-slate-500 font-mono">Query real-time records from Cloudflare D1</p>
+						<h3 class="text-lg font-bold text-slate-900">Pet Appointment &amp; Record Lookup</h3>
+						<p class="text-xs text-slate-500 font-mono">Instant query from Cloudflare D1 database</p>
 					</div>
 				</div>
 
@@ -112,21 +112,21 @@
 						<button
 							type="submit"
 							disabled={isLoading}
-							class="px-5 py-2.5 rounded-xl font-mono text-xs font-bold text-white bg-slate-950 hover:bg-slate-800 transition-all disabled:opacity-50"
+							class="px-5 py-2.5 rounded-xl font-mono text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 transition-all disabled:opacity-50"
 						>
-							{isLoading ? 'Querying...' : 'Lookup'}
+							{isLoading ? 'Searching...' : 'Find Visit'}
 						</button>
 					</div>
 				</div>
 
 				<!-- Quick Test Sample Tokens -->
 				<div class="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono text-slate-500">
-					<span>Sample tokens:</span>
+					<span>Sample records:</span>
 					{#each sampleTokens as tok}
 						<button
 							type="button"
 							onclick={() => handleSampleClick(tok)}
-							class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 transition-colors"
+							class="px-2 py-0.5 rounded bg-slate-100 hover:bg-emerald-50 hover:text-emerald-800 text-slate-800 border border-slate-200 transition-colors"
 						>
 							{tok}
 						</button>
@@ -151,7 +151,7 @@
 					<!-- Top Token & Status -->
 					<div class="flex items-center justify-between border-b border-slate-200 pb-3">
 						<div>
-							<span class="text-slate-400 block text-[10px]">RECORD TOKEN</span>
+							<span class="text-slate-400 block text-[10px]">RECORD CODE</span>
 							<span class="text-base font-bold text-slate-950">{searchResult.reference_code}</span>
 						</div>
 						<div>
@@ -168,20 +168,20 @@
 							<span class="font-bold text-slate-800">{searchResult.pet_name} ({searchResult.species})</span>
 						</div>
 						<div>
-							<span class="text-slate-400 block">Owner / Client:</span>
+							<span class="text-slate-400 block">Pet Parent:</span>
 							<span class="font-bold text-slate-800">{searchResult.client_name}</span>
 						</div>
 						<div>
-							<span class="text-slate-400 block">Schedule Window:</span>
+							<span class="text-slate-400 block">Appointment Time:</span>
 							<span class="font-bold text-slate-800">{searchResult.scheduled_at} @ {searchResult.time_slot}</span>
 						</div>
 						<div>
-							<span class="text-slate-400 block">Attending Clinician:</span>
-							<span class="font-bold text-emerald-800">{searchResult.clinician_assigned || 'Dr. Elena Rostova'}</span>
+							<span class="text-slate-400 block">Attending Doctor:</span>
+							<span class="font-bold text-emerald-800">{searchResult.clinician_assigned || 'Dr. Maya Lin'}</span>
 						</div>
 						<div class="col-span-2">
-							<span class="text-slate-400 block">Symptoms / Clinical Notes:</span>
-							<span class="text-slate-700">{searchResult.symptoms || 'None recorded'}</span>
+							<span class="text-slate-400 block">Notes &amp; Reason for Visit:</span>
+							<span class="text-slate-700">{searchResult.symptoms || 'Routine wellness consultation'}</span>
 						</div>
 					</div>
 
@@ -189,7 +189,7 @@
 					{#if searchResult.attachments && searchResult.attachments.length > 0}
 						<div class="border-t border-slate-200 pt-3">
 							<div class="text-[11px] text-slate-500 uppercase font-bold mb-2">
-								Linked R2 Medical Attachments ({searchResult.attachments.length})
+								Attached Pet Records ({searchResult.attachments.length})
 							</div>
 							<div class="space-y-1.5">
 								{#each searchResult.attachments as att}
@@ -206,7 +206,7 @@
 											<span class="truncate font-semibold">{att.file_name}</span>
 										</div>
 										<span class="text-xs text-emerald-700 font-bold flex items-center gap-1 shrink-0 ml-2">
-											<span>Download from R2</span>
+											<span>Download Record</span>
 											<span>↓</span>
 										</span>
 									</a>
@@ -215,7 +215,7 @@
 						</div>
 					{:else}
 						<div class="border-t border-slate-200 pt-2 text-slate-400 text-[11px]">
-							No external diagnostic attachments uploaded for this record.
+							No external records attached to this visit.
 						</div>
 					{/if}
 				</div>
@@ -223,3 +223,4 @@
 		</div>
 	</div>
 {/if}
+

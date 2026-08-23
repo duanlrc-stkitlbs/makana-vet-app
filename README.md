@@ -1,49 +1,51 @@
-# Makana Veterinary Medicine (Edge SaaS / Clinic Web Application)
+# Makana Family Veterinary Clinic (Edge Web App)
 
-> **High-Performance Modern Single-Page Veterinary SaaS & Clinic Web Application**  
+> **Modern, Compassionate Single-Page General Practice Veterinary Web Application**  
 > Built with **SvelteKit (Svelte 5 Runes)**, deployed to **Cloudflare Pages**, backed by **Cloudflare D1 (SQLite at the Edge)** and **Cloudflare R2 (Zero-Egress Object Storage)**.
 
 ---
 
-## 🔬 System Overview & Aesthetics
+## 🐾 System Overview & Aesthetics
 
-- **Visual Style:** Modern, premium B2B SaaS aesthetic (Linear/Vercel style adapted for clinical veterinary medicine). Clean, high-contrast, spacious, and light.
-- **Palette & Typography:** Crisp off-whites, cool slate borders (`border-slate-200/80`), deep charcoal text, and clinical emerald/teal accents (`emerald-600`, `teal-600`). Monospace typography (`JetBrains Mono`) for technical metadata, timestamps, reference IDs, and edge telemetries.
-- **Architecture:** Zero-egress Cloudflare Edge stack. Sub-5ms D1 queries, sub-second R2 PACS diagnostic streaming, and resilient edge fallback for instant local and offline development.
+- **Visual Style:** Modern, warm, and approachable clinic aesthetic. Clean, high-contrast, spacious, and stress-free for pet parents.
+- **Palette & Typography:** Crisp off-whites, cool slate borders (`border-slate-200/80`), deep charcoal text, and soothing emerald/forest accents (`emerald-700`, `emerald-600`). Monospace typography (`JetBrains Mono`) for technical metadata, timestamps, reference IDs, and edge telemetries.
+- **Architecture:** Zero-egress Cloudflare Edge stack. Sub-5ms D1 queries, sub-second R2 medical record streaming, and resilient edge fallback for instant local and offline development.
 
 ---
 
 ## ⚡ Core Features & Single-Page Flow
 
 1. **Sticky Command Bar / Header:**
-   - Minimalist navigation with live **Emergency Triage: Online** indicator badge.
-   - Global **Track Intake (REF#)** lookup trigger (`⌘K` shortcut support).
-   - High-contrast **Book Consult** action.
+   - Approachable clinic status pill (**Clinic Status: Open & Welcoming | Same-Day Slots Available**).
+   - Global **Pet Portal Lookup (REF#)** trigger (`⌘K` shortcut support).
+   - High-contrast **Book Visit** action.
 2. **High-Impact Hero Section:**
-   - Dual CTA (*Instant Edge Intake* vs *Specialist Directory*).
-   - Real-time **Triage Capacity Badge** (active specialists, ER bed capacity %, average triage latency SLA, edge node identifier).
-   - **Interactive Micro-Preview Card** with live triage queue, PACS DICOM stream, and edge telemetry health tabs.
+   - Friendly headline: *"Friendly, Modern Care For The Pets You Love."*
+   - Dual CTA (*Book an Appointment* vs *Meet Our Vets*).
+   - Real-time **Clinic Availability Badge** (on-site doctors, open schedule capacity %, check-in wait time, edge node identifier).
+   - **Interactive Micro-Preview Card** with live daily schedule queue, in-house lab telemetry, and instant Pet EHR record portal.
 3. **Interactive Service Matrix (Bento Grid):**
-   - Filter tabs: *All Services*, *Preventive Care*, *Diagnostics & Imaging*, *Surgical Suites*, *24/7 Tele-Triage*.
-   - Bento cards with fixed all-inclusive prices, turnaround SLAs, biometric checklists, and 1-click booking preset triggers.
-4. **Edge Intake & Booking Engine:**
-   - **Species Selector:** Canine, Feline, Exotic, Avian, Equine with specialized biometric inputs.
-   - **Clinical Urgency Selector:** *Routine Care*, *Priority Diagnostic*, *Critical ER Triage*.
-   - **Direct Cloudflare R2 Dropzone:** Drag-and-drop file ingestion for prior radiographs, laboratory PDFs, and referral letters (Server-side validation: PDF/JPEG/PNG/WEBP, max 10 MB per file).
-   - **Time Slot Selector:** Dynamic schedule window synchronized with D1 edge reservations.
+   - Filter tabs: *All Services*, *Wellness & Vaccines*, *Dental Care*, *Routine Surgeries*, *In-House Lab & X-Ray*, *Sick Pet & Urgent*.
+   - Bento cards with fixed fees ($55 – $340), turnaround times, and 1-click booking triggers.
+4. **Online Intake & Booking Engine:**
+   - **Species Selector:** Canine (Dog), Feline (Cat), Small Mammal (Rabbit/Guinea Pig), Avian (Bird), Exotic Pet.
+   - **Reason for Visit / Urgency:** *Routine Wellness & Vaccines*, *Sick Pet Visit*, *Same-Day Urgent Visit*.
+   - **Cloudflare R2 Dropzone:** Drag-and-drop file ingestion for previous vaccine records, adoption certificates, and vet notes (Server-side validation: PDF/JPEG/PNG/WEBP, max 10 MB per file).
+   - **Time Slot Selector:** Dynamic appointment calendar window synchronized with D1 edge reservations.
    - **Real-Time Booking Confirmation:** Generates unique tracking tokens (e.g. `MKN-7821-CF`), summary printouts, and immediate D1/R2 sync.
-5. **Transparency & Pricing Tiers:**
-   - SaaS-style toggle between **Monthly Wellness Memberships** (*Essential Edge Care*, *Clinical Comprehensive*, *Platinum Surgical*) and the **Direct Standardized Procedure Fee Schedule**.
-6. **In-House Clinical Hardware & PACS Diagnostics:**
-   - Detailed specifications for *3.0T High-Field MRI*, *64-Slice Spectral CT*, *Olympus 4K Laparoscopic Towers*, and *IDEXX Edge Pathology*.
-7. **Board-Certified Specialists & Faculty:**
-   - Clinical profiles with diplomate certifications (ACVS, ACVR, ACVECC, ACVIM) and real-time on-duty status indicators.
-8. **EHR Record & Attachment Lookup Drawer:**
-   - Search by reference code (or test with sample tokens: `MKN-7821-CF`, `MKN-9412-CF`, `MKN-3109-CF`) to view real-time status and download uploaded R2 files.
-9. **Footer & 24/7 Emergency Protocol:**
-   - Direct-dial emergency hotline anchor (`+1 (800) 555-8389`).
+5. **Transparency & Wellness Plans:**
+   - SaaS-style toggle between **Monthly Wellness Plans** (*Puppy & Kitten Starter* $39/mo, *Adult Companion Complete* $59/mo, *Senior Golden Years* $79/mo) and the **Standard Procedure Fee Schedule**.
+6. **In-House Diagnostic & Surgical Facilities:**
+   - Specifications for *Sound HD Digital Radiography*, *IDEXX Catalyst & ProCyte Lab Suite*, *Midmark Ultrasonic Dental Suite*, and *Dedicated Soft-Tissue Surgical Suite*.
+7. **Compassionate Veterinary Care Team:**
+   - Team profiles for Dr. Maya Lin (Lead Vet & Founder), Dr. Marcus Vance (Associate Vet), Dr. Sarah Jenkins (Senior Pet & Acupuncture), and Jessica Rodriguez (RVT & Patient Care Lead).
+8. **Pet EHR Record & Attachment Lookup Drawer:**
+   - Search by reference code (or test with sample tokens: `MKN-7821-CF`, `MKN-9412-CF`, `MKN-3109-CF`) to view visit status and download attached R2 records.
+9. **Footer & Urgent Care Guidance:**
+   - Daytime urgent care and direct-dial hotline (`+1 (800) 555-8389`).
+   - Clinic hours: Mon–Fri 8:00 AM – 6:00 PM, Sat 8:30 AM – 2:00 PM (Emergency partner referral for nights).
    - Live Edge latency & node health ping component (`/api/health`).
-   - Schema.org structured `VeterinaryCare` JSON-LD metadata for SEO.
+   - Schema.org structured `VeterinaryCare` JSON-LD metadata for local SEO.
 
 ---
 
@@ -51,7 +53,7 @@
 
 ```text
 makana-vet-app/
-├── schema.sql                         # Cloudflare D1 SQLite schema + clinical seed data
+├── schema.sql                         # Cloudflare D1 SQLite schema + general clinic seed data
 ├── wrangler.toml                      # Cloudflare Pages, D1 Database, and R2 Bucket bindings
 ├── svelte.config.js                   # @sveltejs/adapter-cloudflare configuration
 ├── vite.config.ts                     # Vite + SvelteKit configuration
@@ -62,26 +64,26 @@ makana-vet-app/
 │   ├── app.css                        # Tailwind layers, grid patterns, glass styles
 │   ├── lib/
 │   │   ├── types/                     # TypeScript models (Service, Appointment, Attachment, etc.)
-│   │   ├── data/                      # Mock & initial clinical datasets
+│   │   ├── data/                      # Mock & initial clinic datasets
 │   │   ├── server/
 │   │   │   ├── db.ts                  # D1 SQLite Edge client with local fallback
 │   │   │   └── r2.ts                  # R2 Object storage client, mime/size validator & streaming
 │   │   └── components/
-│   │       ├── Header.svelte          # Sticky command bar & triage badge
+│   │       ├── Header.svelte          # Sticky command bar & clinic status badge
 │   │       ├── Hero.svelte            # Hero headline & live interactive preview card
-│   │       ├── TriageCapacityBadge.svelte # Edge capacity telemetry badge
+│   │       ├── TriageCapacityBadge.svelte # Edge capacity & doctor availability telemetry badge
 │   │       ├── ServiceMatrix.svelte   # Bento grid service catalogue with filter tabs
 │   │       ├── IntakeBookingEngine.svelte # Form intake, species selector & D1/R2 submit
 │   │       ├── FileDropzone.svelte    # Drag-and-drop R2 attachment uploader
 │   │       ├── TimeSlotSelector.svelte# Date & time slot picker
-│   │       ├── PricingTiers.svelte    # Wellness membership vs procedure schedule
-│   │       ├── TechStackDiagnostics.svelte # 3.0T MRI, CT, Laparoscopy & Edge architecture
-│   │       ├── SpecialistsSection.svelte # Board-certified clinician cards
+│   │       ├── PricingTiers.svelte    # Wellness membership plans vs procedure schedule
+│   │       ├── TechStackDiagnostics.svelte # In-house lab, X-Ray, dental & Edge architecture
+│   │       ├── SpecialistsSection.svelte # Friendly veterinary care team cards
 │   │       ├── AppointmentLookupModal.svelte # Record & R2 file download modal
-│   │       └── Footer.svelte          # 24/7 ER hotline & live health check
+│   │       └── Footer.svelte          # Urgent care hotline, hours & live health check
 │   └── routes/
 │       ├── +layout.svelte             # Root layout
-│       ├── +page.server.ts            # Server-side load fetching D1 services & specialists
+│       ├── +page.server.ts            # Server-side load fetching D1 services & staff
 │       ├── +page.svelte               # Single-page flow
 │       └── api/
 │           ├── appointments/
@@ -131,36 +133,6 @@ npx wrangler pages dev .svelte-kit/cloudflare --d1=DB=makana-vet-d1 --r2=RECORDS
 
 ---
 
-## 🛠 Cloudflare Configuration (`wrangler.toml`)
-
-```toml
-name = "makana-vet-app"
-pages_build_output_dir = ".svelte-kit/cloudflare"
-compatibility_date = "2024-11-01"
-compatibility_flags = ["nodejs_compat"]
-
-[vars]
-CLINIC_NAME = "Makana Clinical Veterinary Medicine"
-CLINIC_EDGELOCATION = "Global Edge Network"
-EMERGENCY_HOTLINE = "+1 (800) 555-8389"
-MAX_UPLOAD_SIZE_BYTES = "10485760"
-
-# Cloudflare D1 Database Binding
-[[d1_databases]]
-binding = "DB"
-database_name = "makana-vet-d1"
-database_id = "makana-vet-d1-prod"
-migrations_dir = "migrations"
-
-# Cloudflare R2 Bucket Binding
-[[r2_buckets]]
-binding = "RECORDS_BUCKET"
-bucket_name = "makana-vet-records"
-preview_bucket_name = "makana-vet-records-preview"
-```
-
----
-
 ## 🔒 Security & Server-Side Validation
 
 1. **File Upload Security:**
@@ -176,3 +148,4 @@ preview_bucket_name = "makana-vet-records-preview"
 
 ## 📄 License
 MIT License. Crafted for high-performance edge veterinary healthcare.
+

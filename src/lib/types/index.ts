@@ -1,10 +1,10 @@
-export type ServiceCategory = 'preventive' | 'diagnostics' | 'surgery' | 'teletriage';
+export type ServiceCategory = 'preventive' | 'surgery' | 'diagnostics' | 'urgent_care' | 'dental';
 
-export type UrgencyLevel = 'routine' | 'priority' | 'critical';
+export type UrgencyLevel = 'routine' | 'sick_visit' | 'urgent_day';
 
-export type SpeciesType = 'Canine' | 'Feline' | 'Exotic' | 'Avian' | 'Equine';
+export type SpeciesType = 'Canine' | 'Feline' | 'Exotic' | 'Avian' | 'Small Mammal';
 
-export type AppointmentStatus = 'confirmed' | 'in_triage' | 'in_consultation' | 'completed' | 'cancelled';
+export type AppointmentStatus = 'confirmed' | 'in_consultation' | 'completed' | 'cancelled';
 
 export interface Service {
 	id: string;
@@ -65,7 +65,7 @@ export interface Specialist {
 }
 
 export interface TriageCapacity {
-	status: 'Optimal' | 'Elevated' | 'Critical ER Priority';
+	status: 'Open & Welcoming' | 'Busy / Normal Flow' | 'Urgent Slots Available' | 'Optimal' | 'Elevated' | 'Critical ER Priority';
 	activeSpecialists: number;
 	erBedCapacityPercent: number;
 	avgTriageLatencySeconds: number;
@@ -82,3 +82,4 @@ export interface EdgeHealthResponse {
 	latencyMs: number;
 	version: string;
 }
+

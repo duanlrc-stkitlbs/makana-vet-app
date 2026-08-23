@@ -24,21 +24,21 @@
 		<!-- Section Header -->
 		<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 			<div>
-				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-mono mb-3">
-					<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-					<span>BOARD-CERTIFIED CLINICAL FACULTY</span>
+				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-700 text-white text-xs font-mono mb-3">
+					<span class="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+					<span>OUR VETERINARY CARE TEAM</span>
 				</div>
 				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
-					Veterinary Specialists &amp; Surgeons
+					Compassionate Doctors &amp; Technicians
 				</h2>
 				<p class="mt-2 text-base text-slate-600 max-w-2xl">
-					Direct access to board-certified diplomates in surgery, radiology, emergency critical care, and internal medicine.
+					Meet the friendly veterinarians and licensed care team dedicated to gentle, stress-free veterinary visits.
 				</p>
 			</div>
 
 			<div class="flex items-center gap-2 text-xs font-mono text-slate-600 bg-white p-3 rounded-xl border border-slate-200 shadow-clinical-sm">
 				<span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-				<span>4 Attending Diplomates On Rotation Today</span>
+				<span>Welcoming New Dogs, Cats &amp; Small Pets</span>
 			</div>
 		</div>
 
@@ -52,7 +52,7 @@
 							<img
 								src={spec.avatar_url || 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400'}
 								alt={spec.name}
-								class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300"
+								class="w-full h-full object-cover transition-all duration-300"
 								loading="lazy"
 							/>
 							<div class="absolute top-2 right-2">
@@ -89,9 +89,9 @@
 								if (onConsultSpecialist) onConsultSpecialist(spec);
 								scrollTo('intake');
 							}}
-							class="w-full py-2 px-3 rounded-lg text-xs font-mono font-semibold bg-slate-50 text-slate-700 hover:bg-slate-900 hover:text-white border border-slate-200 transition-colors flex items-center justify-center gap-1"
+							class="w-full py-2 px-3 rounded-lg text-xs font-mono font-semibold bg-slate-50 text-slate-700 hover:bg-emerald-700 hover:text-white border border-slate-200 transition-colors flex items-center justify-center gap-1"
 						>
-							<span>Request Consultation</span>
+							<span>Book Appointment</span>
 							<span>→</span>
 						</button>
 					</div>
@@ -100,3 +100,4 @@
 		</div>
 	</div>
 </section>
+

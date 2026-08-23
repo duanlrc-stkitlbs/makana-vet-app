@@ -21,13 +21,15 @@
 	}
 
 	function handleConsultSpecialist(specialist: Specialist) {
-		// Auto select appropriate service based on specialist specialty
+		// Auto select appropriate service based on doctor specialty
 		if (specialist.specialty.includes('Surgery')) {
 			selectedService = data.services.find((s) => s.category === 'surgery') || null;
-		} else if (specialist.specialty.includes('Radiology') || specialist.specialty.includes('MRI')) {
+		} else if (specialist.specialty.includes('Dental')) {
+			selectedService = data.services.find((s) => s.category === 'dental') || null;
+		} else if (specialist.specialty.includes('Diagnostics') || specialist.specialty.includes('Radiology')) {
 			selectedService = data.services.find((s) => s.category === 'diagnostics') || null;
-		} else if (specialist.specialty.includes('Emergency')) {
-			selectedService = data.services.find((s) => s.category === 'teletriage') || null;
+		} else {
+			selectedService = data.services.find((s) => s.category === 'preventive') || null;
 		}
 	}
 
@@ -42,10 +44,10 @@
 </script>
 
 <svelte:head>
-	<title>Makana Veterinary Medicine | Precision Edge Clinical Care</title>
+	<title>Makana Family Veterinary Clinic | Friendly, Modern Pet Care</title>
 	<meta
 		name="description"
-		content="High-performance modern veterinary clinic with instant edge intake, 24/7 tele-triage, and advanced diagnostics backed by Cloudflare D1 and R2."
+		content="Compassionate neighborhood veterinary care with transparent pricing, online booking, in-house lab, digital X-rays, and instant pet medical records."
 	/>
 </svelte:head>
 
@@ -101,3 +103,4 @@
 	isOpen={isLookupOpen}
 	onClose={() => (isLookupOpen = false)}
 />
+

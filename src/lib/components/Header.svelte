@@ -42,7 +42,7 @@
 			<div class="flex items-center gap-4 sm:gap-6">
 				<a href="#hero" class="flex items-center gap-2.5 group">
 					<div
-						class="w-9 h-9 rounded-lg bg-slate-950 text-emerald-400 flex items-center justify-center font-mono font-bold text-lg shadow-sm border border-slate-800 group-hover:border-emerald-500/50 transition-colors"
+						class="w-9 h-9 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-mono font-bold text-lg shadow-sm border border-emerald-800 group-hover:bg-emerald-600 transition-colors"
 					>
 						<svg
 							class="w-5 h-5 transition-transform group-hover:scale-110"
@@ -53,32 +53,32 @@
 							stroke-linecap="round"
 							stroke-linejoin="round"
 						>
-							<path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+							<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
 						</svg>
 					</div>
 					<div>
 						<div class="flex items-center gap-1.5">
 							<span class="font-bold tracking-tight text-slate-900 text-base sm:text-lg">MAKANA</span>
-							<span class="text-xs px-1.5 py-0.5 rounded font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-								EDGE VET
+							<span class="text-xs px-1.5 py-0.5 rounded font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+								FAMILY VET
 							</span>
 						</div>
 						<p class="text-[10px] text-slate-500 tracking-wider uppercase font-mono hidden sm:block">
-							Clinical Precision • D1/R2 Cloud
+							Compassionate Pet Care • Modern &amp; Stress-Free
 						</p>
 					</div>
 				</a>
 
-				<!-- Live Triage Status Badge -->
+				<!-- Live Clinic Status Badge -->
 				<div class="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200/80 text-xs font-mono">
 					<span class="relative flex h-2 w-2">
 						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
 						<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
 					</span>
-					<span class="text-slate-600 font-medium">Emergency Triage:</span>
-					<span class="text-emerald-700 font-semibold">Online & Direct</span>
+					<span class="text-slate-600 font-medium">Clinic Status:</span>
+					<span class="text-emerald-700 font-semibold">{triageCapacity?.status || 'Open & Welcoming'}</span>
 					<span class="text-slate-300">|</span>
-					<span class="text-slate-500">{triageCapacity?.avgTriageLatencySeconds || 134}s SLA</span>
+					<span class="text-slate-500">Same-Day Slots Available</span>
 				</div>
 			</div>
 
@@ -88,37 +88,37 @@
 					onclick={() => scrollToSection('services')}
 					class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100/80 transition-colors"
 				>
-					Services Matrix
+					Services
 				</button>
 				<button
 					onclick={() => scrollToSection('intake')}
 					class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100/80 transition-colors"
 				>
-					Edge Intake
+					Book Visit
 				</button>
 				<button
 					onclick={() => scrollToSection('pricing')}
 					class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100/80 transition-colors"
 				>
-					Pricing & Plans
+					Wellness Plans
 				</button>
 				<button
 					onclick={() => scrollToSection('diagnostics')}
 					class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100/80 transition-colors"
 				>
-					Clinical Tech
+					Clinic Facilities
 				</button>
 				<button
 					onclick={() => scrollToSection('specialists')}
 					class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100/80 transition-colors"
 				>
-					Specialists
+					Our Vets &amp; Team
 				</button>
 				<button
 					onclick={() => scrollToSection('emergency')}
-					class="px-3 py-1.5 rounded-md text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors font-semibold"
+					class="px-3 py-1.5 rounded-md text-amber-700 hover:text-amber-800 hover:bg-amber-50 transition-colors font-semibold"
 				>
-					24/7 ER Protocol
+					Urgent Care &amp; Hours
 				</button>
 			</nav>
 
@@ -135,7 +135,7 @@
 						<circle cx="11" cy="11" r="8"></circle>
 						<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 					</svg>
-					<span>Track Intake</span>
+					<span>Find Appointment</span>
 					<kbd class="hidden md:inline-block px-1.5 py-0.2 rounded text-[10px] bg-slate-100 text-slate-500 border border-slate-200">
 						REF#
 					</kbd>
@@ -148,11 +148,11 @@
 						else scrollToSection('intake');
 					}}
 					type="button"
-					class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg text-white bg-slate-900 hover:bg-slate-800 active:scale-[0.98] transition-all shadow-sm shadow-slate-900/10 border border-slate-800 group"
+					class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg text-white bg-emerald-700 hover:bg-emerald-800 active:scale-[0.98] transition-all shadow-sm shadow-emerald-900/10 border border-emerald-800 group"
 				>
-					<span>Book Consult</span>
+					<span>Book Appointment</span>
 					<svg
-						class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform"
+						class="w-4 h-4 text-emerald-200 group-hover:translate-x-0.5 transition-transform"
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
@@ -187,44 +187,44 @@
 		{#if mobileMenuOpen}
 			<div class="lg:hidden py-4 border-t border-slate-200 bg-white/95 rounded-b-xl shadow-lg mt-1 space-y-2 px-2">
 				<div class="px-3 py-2 rounded-md bg-slate-50 border border-slate-200 flex items-center justify-between text-xs font-mono mb-3">
-					<span class="text-emerald-700 font-semibold">● Live Triage: Online</span>
-					<span class="text-slate-500">Latency: 4ms</span>
+					<span class="text-emerald-700 font-semibold">● Clinic Open: Mon–Sat</span>
+					<span class="text-slate-500">Same-Day Available</span>
 				</div>
 				<button
 					onclick={() => scrollToSection('services')}
 					class="w-full text-left px-3 py-2 rounded-md text-slate-700 font-medium hover:bg-slate-100"
 				>
-					Services Matrix
+					Veterinary Services
 				</button>
 				<button
 					onclick={() => scrollToSection('intake')}
 					class="w-full text-left px-3 py-2 rounded-md text-slate-700 font-medium hover:bg-slate-100"
 				>
-					Edge Intake Engine
+					Book an Appointment
 				</button>
 				<button
 					onclick={() => scrollToSection('pricing')}
 					class="w-full text-left px-3 py-2 rounded-md text-slate-700 font-medium hover:bg-slate-100"
 				>
-					Pricing & Wellness Plans
+					Wellness Plans &amp; Prices
 				</button>
 				<button
 					onclick={() => scrollToSection('diagnostics')}
 					class="w-full text-left px-3 py-2 rounded-md text-slate-700 font-medium hover:bg-slate-100"
 				>
-					Clinical Technology
+					In-House Lab &amp; Facilities
 				</button>
 				<button
 					onclick={() => scrollToSection('specialists')}
 					class="w-full text-left px-3 py-2 rounded-md text-slate-700 font-medium hover:bg-slate-100"
 				>
-					Specialist Team
+					Our Veterinary Team
 				</button>
 				<button
 					onclick={() => scrollToSection('emergency')}
-					class="w-full text-left px-3 py-2 rounded-md text-red-600 font-bold hover:bg-red-50"
+					class="w-full text-left px-3 py-2 rounded-md text-amber-700 font-bold hover:bg-amber-50"
 				>
-					24/7 Emergency Hotline
+					Urgent Care &amp; Hours
 				</button>
 				<button
 					onclick={() => {
@@ -233,7 +233,7 @@
 					}}
 					class="w-full text-left px-3 py-2 rounded-md text-slate-800 font-mono text-xs border border-slate-200 bg-slate-50"
 				>
-					🔍 Track Existing Appointment (Ref#)
+					🔍 Find Existing Appointment (Ref#)
 				</button>
 			</div>
 		{/if}

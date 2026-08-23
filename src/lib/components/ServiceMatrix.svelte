@@ -9,29 +9,33 @@
 	let { services = [], onSelectService }: Props = $props();
 
 	let activeFilter = $state<string>('all');
-	let selectedServiceForDetail = $state<Service | null>(null);
 
 	const categories: { id: string; label: string; count: number }[] = $derived([
 		{ id: 'all', label: 'All Services', count: services.length },
 		{
 			id: 'preventive',
-			label: 'Preventive Care',
+			label: 'Wellness & Vaccines',
 			count: services.filter((s) => s.category === 'preventive').length
 		},
 		{
-			id: 'diagnostics',
-			label: 'Diagnostics & Imaging',
-			count: services.filter((s) => s.category === 'diagnostics').length
+			id: 'dental',
+			label: 'Dental Care',
+			count: services.filter((s) => s.category === 'dental').length
 		},
 		{
 			id: 'surgery',
-			label: 'Surgical Suites',
+			label: 'Routine Surgeries',
 			count: services.filter((s) => s.category === 'surgery').length
 		},
 		{
-			id: 'teletriage',
-			label: '24/7 Tele-Triage',
-			count: services.filter((s) => s.category === 'teletriage').length
+			id: 'diagnostics',
+			label: 'In-House Lab & X-Ray',
+			count: services.filter((s) => s.category === 'diagnostics').length
+		},
+		{
+			id: 'urgent_care',
+			label: 'Sick Pet & Urgent',
+			count: services.filter((s) => s.category === 'urgent_care').length
 		}
 	]);
 
@@ -64,15 +68,15 @@
 		<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 			<div>
 				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-800 font-semibold mb-3">
-					<span>CLINICAL SERVICE MATRIX</span>
+					<span>COMMUNITY VETERINARY CARE</span>
 					<span class="text-emerald-400">•</span>
-					<span>TIER-1 EDGE VET</span>
+					<span>TRANSPARENT PRICING</span>
 				</div>
 				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
-					Comprehensive Veterinary Services
+					Complete Care For Every Stage of Life
 				</h2>
 				<p class="mt-2 text-base text-slate-600 max-w-2xl font-normal">
-					Transparent, fixed-rate clinical protocols engineered for zero-friction intake, rapid telemetry, and tertiary specialist care.
+					From puppy and kitten vaccinations to routine dental care, in-house lab tests, and gentle surgery — all with transparent, fixed pricing.
 				</p>
 			</div>
 
@@ -82,8 +86,8 @@
 					$0
 				</div>
 				<div>
-					<div class="font-bold text-slate-900">Zero Surprise Billing</div>
-					<div class="text-slate-500 text-[11px]">All fees locked at booking in D1</div>
+					<div class="font-bold text-slate-900">Zero Surprise Fees</div>
+					<div class="text-slate-500 text-[11px]">All estimates provided upfront</div>
 				</div>
 			</div>
 		</div>
@@ -120,7 +124,7 @@
 						<div class="flex items-center justify-between gap-2 mb-4">
 							<div class="flex items-center gap-2">
 								<span class="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-slate-100 text-slate-700 border border-slate-200/80 uppercase">
-									{service.category}
+									{service.category.replace('_', ' ')}
 								</span>
 								{#if service.badge}
 									<span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -165,13 +169,13 @@
 					<!-- Bottom Row: Pricing & Book CTA -->
 					<div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
 						<div>
-							<div class="text-[11px] font-mono uppercase text-slate-400">All-Inclusive</div>
+							<div class="text-[11px] font-mono uppercase text-slate-400">Fixed Fee</div>
 							<div class="text-xl font-extrabold font-mono text-slate-950">
 								{formatPrice(service.price_cents)}
 							</div>
 							{#if service.sla_turnaround}
 								<div class="text-[10px] font-mono text-emerald-700 font-medium mt-0.5">
-									SLA: {service.sla_turnaround}
+									{service.sla_turnaround}
 								</div>
 							{/if}
 						</div>
@@ -179,9 +183,9 @@
 						<button
 							onclick={() => handleBook(service)}
 							type="button"
-							class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-slate-900 hover:text-white border border-slate-200 group-hover:border-slate-900 transition-all shadow-clinical-sm active:scale-95"
+							class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 bg-slate-100 hover:bg-emerald-700 hover:text-white border border-slate-200 group-hover:border-slate-900 transition-all shadow-clinical-sm active:scale-95"
 						>
-							<span>Book Consult</span>
+							<span>Book Visit</span>
 							<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 								<path d="M5 12h14"></path>
 								<path d="m12 5 7 7-7 7"></path>
@@ -193,3 +197,4 @@
 		</div>
 	</div>
 </section>
+

@@ -37,7 +37,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		let symptoms = '';
 		let scheduledAt = '';
 		let timeSlot = '';
-		let clinicianAssigned = 'Attending Specialist';
+		let clinicianAssigned = 'Dr. Maya Lin';
 		const filesToUpload: File[] = [];
 
 		if (contentType.includes('multipart/form-data')) {
@@ -53,12 +53,12 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 			if (ageStr) ageYears = parseFloat(ageStr);
 			const weightStr = formData.get('weight_kg') as string;
 			if (weightStr) weightKg = parseFloat(weightStr);
-			serviceType = (formData.get('service_type') as string) || 'comprehensive-wellness-exam';
+			serviceType = (formData.get('service_type') as string) || 'routine-wellness-exam';
 			urgencyLevel = ((formData.get('urgency_level') as string) || 'routine') as UrgencyLevel;
 			symptoms = (formData.get('symptoms') as string) || '';
 			scheduledAt = (formData.get('scheduled_at') as string) || new Date().toISOString().split('T')[0];
 			timeSlot = (formData.get('time_slot') as string) || '09:00 AM';
-			clinicianAssigned = (formData.get('clinician_assigned') as string) || 'Attending Specialist';
+			clinicianAssigned = (formData.get('clinician_assigned') as string) || 'Dr. Maya Lin';
 
 			// Check for files
 			const allFiles = formData.getAll('attachments');
@@ -81,12 +81,12 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 			breed = body.breed;
 			ageYears = body.age_years ? parseFloat(body.age_years) : undefined;
 			weightKg = body.weight_kg ? parseFloat(body.weight_kg) : undefined;
-			serviceType = body.service_type || 'comprehensive-wellness-exam';
+			serviceType = body.service_type || 'routine-wellness-exam';
 			urgencyLevel = body.urgency_level || 'routine';
 			symptoms = body.symptoms;
 			scheduledAt = body.scheduled_at || new Date().toISOString().split('T')[0];
 			timeSlot = body.time_slot || '09:00 AM';
-			clinicianAssigned = body.clinician_assigned || 'Attending Specialist';
+			clinicianAssigned = body.clinician_assigned || 'Dr. Maya Lin';
 		}
 
 		// Validation

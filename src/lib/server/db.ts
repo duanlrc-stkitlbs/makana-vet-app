@@ -9,10 +9,10 @@ let localAttachments: Attachment[] = [
 	{
 		id: 'att_01',
 		appointment_id: 'apt_demo_01',
-		r2_object_key: 'records/apt_demo_01/prior-lumbar-radiograph.pdf',
-		file_name: 'prior-lumbar-radiograph.pdf',
+		r2_object_key: 'records/apt_demo_01/prior-vaccine-record.pdf',
+		file_name: 'prior-vaccine-record.pdf',
 		mime_type: 'application/pdf',
-		size_bytes: 2450000,
+		size_bytes: 1450000,
 		created_at: new Date().toISOString()
 	}
 ];
@@ -374,7 +374,7 @@ export function getDatabase(platform?: App.Platform): DatabaseClient {
 				scheduled_at: data.scheduled_at,
 				time_slot: data.time_slot,
 				status: data.status || 'confirmed',
-				clinician_assigned: data.clinician_assigned || 'Dr. Elena Rostova',
+				clinician_assigned: data.clinician_assigned || 'Dr. Maya Lin',
 				created_at: now,
 				updated_at: now,
 				attachments: []

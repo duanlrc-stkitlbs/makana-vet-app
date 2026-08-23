@@ -28,7 +28,7 @@
 	const schemaJsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'VeterinaryCare',
-		name: 'Makana Clinical Veterinary Medicine',
+		name: 'Makana Family Veterinary Clinic',
 		image: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf',
 		telephone: '+1-800-555-8389',
 		address: {
@@ -47,12 +47,18 @@
 		openingHoursSpecification: [
 			{
 				'@type': 'OpeningHoursSpecification',
-				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-				opens: '00:00',
-				closes: '23:59'
+				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+				opens: '08:00',
+				closes: '18:00'
+			},
+			{
+				'@type': 'OpeningHoursSpecification',
+				dayOfWeek: ['Saturday'],
+				opens: '08:30',
+				closes: '14:00'
 			}
 		],
-		priceRange: '$$$'
+		priceRange: '$$'
 	};
 </script>
 
@@ -61,25 +67,25 @@
 </svelte:head>
 
 <footer id="emergency" class="bg-slate-950 text-white border-t border-slate-800 relative overflow-hidden">
-	<!-- Emergency Hotline Banner -->
-	<div class="bg-gradient-to-r from-red-950 via-red-900 to-slate-950 border-b border-red-800/80 px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+	<!-- Urgent Care & Hours Guidance Banner -->
+	<div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950 border-b border-emerald-800/60 px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
 		<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
 			<div class="flex items-center gap-4">
-				<div class="w-12 h-12 rounded-2xl bg-red-600/30 border border-red-500/50 flex items-center justify-center text-red-400 shrink-0">
+				<div class="w-12 h-12 rounded-2xl bg-emerald-700/30 border border-emerald-500/50 flex items-center justify-center text-emerald-400 shrink-0">
 					<svg class="w-6 h-6 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
 					</svg>
 				</div>
 				<div>
-					<div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-red-400 uppercase tracking-wide">
-						<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-						<span>24/7 Priority Emergency Triage Protocol</span>
+					<div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-emerald-400 uppercase tracking-wide">
+						<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+						<span>Daytime Urgent Care &amp; Clinic Support</span>
 					</div>
 					<h3 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
-						Acute Trauma &amp; Critical Care Hotline
+						Need Same-Day Care For Your Pet?
 					</h3>
-					<p class="text-xs text-red-200/80 font-mono mt-0.5">
-						Attending emergency surgeons on standby. Zero intake delay.
+					<p class="text-xs text-slate-300 font-mono mt-0.5">
+						Call for urgent daytime appointments or guidance. For midnight life-threatening emergencies, we provide local 24/7 ER partner routing.
 					</p>
 				</div>
 			</div>
@@ -87,7 +93,7 @@
 			<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
 				<a
 					href="tel:+18005558389"
-					class="px-6 py-3.5 rounded-xl font-mono font-bold text-base bg-red-600 hover:bg-red-500 text-white flex items-center justify-center gap-2 shadow-lg shadow-red-600/30 transition-all active:scale-95"
+					class="px-6 py-3.5 rounded-xl font-mono font-bold text-base bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2 shadow-lg shadow-emerald-700/30 transition-all active:scale-95"
 				>
 					<span>CALL +1 (800) 555-8389</span>
 				</a>
@@ -101,14 +107,14 @@
 			<!-- Col 1: Brand & Edge Telemetry (2 cols) -->
 			<div class="lg:col-span-2 space-y-4">
 				<div class="flex items-center gap-2.5">
-					<div class="w-8 h-8 rounded-lg bg-slate-900 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm border border-slate-800">
-						⚡
+					<div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-mono font-bold text-sm border border-emerald-600">
+						🐾
 					</div>
-					<span class="font-bold tracking-tight text-white text-lg">MAKANA VETERINARY</span>
+					<span class="font-bold tracking-tight text-white text-lg">MAKANA FAMILY VET</span>
 				</div>
 
 				<p class="text-xs text-slate-400 leading-relaxed font-mono max-w-sm">
-					Tertiary veterinary medical center deployed to Cloudflare Edge. Backed by Cloudflare D1 distributed SQLite and R2 Object Storage for sub-millisecond EHR queries.
+					Your community companion animal clinic powered by Cloudflare Edge. Backed by Cloudflare D1 distributed SQLite and R2 Object Storage for instant digital pet records.
 				</p>
 
 				<!-- Edge Telemetry Latency Badge -->
@@ -140,38 +146,42 @@
 				</div>
 			</div>
 
-			<!-- Col 2: Clinical Services -->
+			<!-- Col 2: Veterinary Services -->
 			<div class="space-y-3">
-				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Clinical Services</h4>
+				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Veterinary Care</h4>
 				<ul class="space-y-2 text-xs font-mono text-slate-400">
-					<li><a href="#services" class="hover:text-emerald-400 transition-colors">3.0T High-Field MRI</a></li>
-					<li><a href="#services" class="hover:text-emerald-400 transition-colors">64-Slice Spectral CT</a></li>
-					<li><a href="#services" class="hover:text-emerald-400 transition-colors">Laparoscopic Surgery</a></li>
-					<li><a href="#services" class="hover:text-emerald-400 transition-colors">TPLO Reconstruction</a></li>
-					<li><a href="#services" class="hover:text-emerald-400 transition-colors">24/7 Tele-Triage</a></li>
+					<li><a href="#services" class="hover:text-emerald-400 transition-colors">Wellness &amp; Physical Exams</a></li>
+					<li><a href="#services" class="hover:text-emerald-400 transition-colors">Vaccines &amp; Microchipping</a></li>
+					<li><a href="#services" class="hover:text-emerald-400 transition-colors">Dental Scale &amp; Polish</a></li>
+					<li><a href="#services" class="hover:text-emerald-400 transition-colors">Spay &amp; Neuter Surgeries</a></li>
+					<li><a href="#services" class="hover:text-emerald-400 transition-colors">In-House Lab &amp; Digital X-Ray</a></li>
 				</ul>
 			</div>
 
-			<!-- Col 3: Hospital Facility -->
+			<!-- Col 3: Clinic Hours & Location -->
 			<div class="space-y-3">
-				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Hospital Facility</h4>
+				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Clinic Hours &amp; Location</h4>
 				<div class="text-xs font-mono text-slate-400 space-y-1.5 leading-relaxed">
-					<p class="text-slate-300 font-semibold">Emergency Triage Bays 1–4</p>
+					<p class="text-slate-300 font-semibold">Makana Family Veterinary Clinic</p>
 					<p>4200 Precision Parkway, Suite 100</p>
-					<p>Innovation District, CA 94107</p>
-					<p class="pt-2 text-emerald-400">● 24/7/365 Continuous Operation</p>
+					<p>San Francisco, CA 94107</p>
+					<div class="pt-2 text-slate-300">
+						<p><strong class="text-emerald-400">Mon–Fri:</strong> 8:00 AM – 6:00 PM</p>
+						<p><strong class="text-emerald-400">Saturday:</strong> 8:30 AM – 2:00 PM</p>
+						<p><strong class="text-slate-500">Sunday:</strong> Closed (ER On-Call)</p>
+					</div>
 				</div>
 			</div>
 
-			<!-- Col 4: Platform & Compliance -->
+			<!-- Col 4: Standards & Technology -->
 			<div class="space-y-3">
-				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Edge Infrastructure</h4>
+				<h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Care Standards</h4>
 				<ul class="space-y-2 text-xs font-mono text-slate-400">
-					<li>Cloudflare Pages + Workers</li>
-					<li>Cloudflare D1 Edge SQLite</li>
-					<li>Cloudflare R2 PACS Storage</li>
-					<li>AAHA Accredited Facility</li>
-					<li>VECCS Level 1 Certified</li>
+					<li>Fear-Free Certified Protocols</li>
+					<li>Cat-Friendly Practice Guidelines</li>
+					<li>AAHA Accredited Standards</li>
+					<li>Cloudflare D1 &amp; R2 Fast Portal</li>
+					<li>100% Upfront Pricing Guarantee</li>
 				</ul>
 			</div>
 		</div>
@@ -179,15 +189,16 @@
 		<!-- Bottom Copyright Row -->
 		<div class="mt-12 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
 			<div>
-				© 2026 Makana Clinical Veterinary Medicine. All rights reserved.
+				© 2026 Makana Family Veterinary Clinic. All rights reserved.
 			</div>
 			<div class="flex items-center gap-4">
-				<span>Global PoP Routing</span>
+				<span>Global Edge Hosting</span>
 				<span>•</span>
-				<span>Zero-Egress PACS</span>
+				<span>Instant Pet Records</span>
 				<span>•</span>
 				<span>SvelteKit + Svelte 5</span>
 			</div>
 		</div>
 	</div>
 </footer>
+
